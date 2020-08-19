@@ -1,0 +1,13 @@
+import os
+
+
+class Database:
+    NAME = os.getenv('POSTGRES_DB')
+    USER = os.getenv('POSTGRES_USER')
+    PASSWORD = os.getenv('POSTGRES_PASSWORD')
+    HOST = os.getenv('DATABASE_HOST')
+    PORT = os.getenv('DATABASE_PORT')
+
+
+class Secrets:
+    SECRET_KEY = "k271q4m!&@=60m(_$l_7!xe3r(%n#qigoqo)h9j1s9+2_)$!ct"
