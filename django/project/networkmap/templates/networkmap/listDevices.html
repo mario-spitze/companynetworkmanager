@@ -1,0 +1,18 @@
+<h1>Geräteliste</h1>
+
+<table border="2">
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Ports</th>
+    </tr>
+    {% for device in object_list %}
+    <tr>
+        <td><a href="{% url 'networkmap:editDevice' device.id %}">{{ device.id }}</a></td>
+        <td>{{ device.name }}</td>
+        <td>{ device.location }</td>
+        <td>{{ device.portCount }}</td>
+    </tr>
+    {% endfor %}
+</table>
