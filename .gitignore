@@ -2,3 +2,4 @@ project.env
 keyconfig.py
 postgres-data/*
 *.pyc
+settings_priv.py

@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.contrib.postgres.fields import JSONField
+from django.db.models import JSONField
 
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
@@ -68,20 +68,12 @@ class DevicePort(Port):
     def __str__(self):
         return self.name
 
-#    def __init__(self):
-#        super().__init__(self)
-#        self.classType = Port.PortClass.DEVICE
-
-
 class PatchFieldPort(Port):
     patchField = models.ForeignKey(
         'PatchField',
         on_delete=models.CASCADE
     )   
     patchFieldPosition = models.IntegerField()
-#    def __init__(self):
-#        self.classType = Port.PortClass.TUNNEL
-#        super().__init__(self)
 
 class PatchField(models.Model): 
     name = models.CharField(max_length=20)
@@ -118,9 +110,4 @@ class Connection(models.Model):
 
     partB = GenericForeignKey('portB_type', 'portB_id')
 
-#    partB = models.ForeignKey(
-#        'Port',
-#        on_delete=models.CASCADE,
-#        related_name='partB'
-#    )
     data = JSONField()
