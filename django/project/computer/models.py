@@ -6,9 +6,13 @@ from django.utils.translation import gettext_lazy as _
 class Device(models.Model):
     deviceName = models.CharField(max_length=26)
     networkDevice = models.OneToOneField('networkmap.Device',
-        on_delete=models.CASCADE)
+        on_delete=models.CASCADE,
+        blank=True, null = True, default = None)
+    model = models.ForeignKey('DeviceModel',
+        on_delete=models.CASCADE,
+        blank=True, null = True, default = None)
 
-    inventNumber = models.IntegerField()
+    inventNumber = models.IntegerField(default=-1)
 
     def __str__(self):
         return self.deviceName
@@ -25,7 +29,8 @@ class SoftwareInstallation(models.Model):
     software = models.ForeignKey('Software',
         on_delete=models.CASCADE)
     device = models.ForeignKey('Device',
-        on_delete=models.CASCADE)
+        on_delete=models.CASCADE,
+        blank=True, null = True, default = None)
     key = models.CharField(max_length=30)
     class SoftwareType(models.TextChoices):
         DEVICE = 'O', _('OS')
@@ -37,10 +42,13 @@ class SoftwareInstallation(models.Model):
     )
 
     def __str__(self):
-        return self.software + " Version " + version + " on " + device
+        if self.device == None:
+            return self.software.__str__() + " Version " + self.version    
+        return self.software.__str__() + " Version " + self.version + " on " + self.device.__str__()
 
-#class OS(models.Model):
-#    oSName = models.CharField(max_length=20)
-#
-#    def __str__(self):
-#        return self.oSName
+
+class DeviceModel(models.Model):
+    manufacturer = models.CharField(max_length=20)
+    model = models.CharField(max_length=20)
+    cpu = models.CharField(max_length=20)
+    memory = models.CharField(max_length=8)

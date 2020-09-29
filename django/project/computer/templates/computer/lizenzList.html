@@ -1,0 +1,18 @@
+<h1>Lizenz Liste</h1>
+
+<table border="2">
+    <tr>
+        <th>Software</th>
+        <th>Version</th>
+        <th>Key</th>
+        <th>Device</th>
+    </tr>
+    {% for lizenz in object_list %}
+    <tr>
+        <td>{{lizenz.software}}</td>
+        <td>{{lizenz.version}}</td>
+        <td>{{lizenz.key}}</td>
+        <td>{{lizenz.device}}</td>
+    </tr>
+    {% endfor %}
+</table>
