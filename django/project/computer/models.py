@@ -55,4 +55,4 @@ class DeviceModel(models.Model):
     
     
     def __str__(self):
-        return self.manufacturer + " " self.model
+        return self.manufacturer + " " + self.model
