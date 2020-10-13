@@ -52,3 +52,7 @@ class DeviceModel(models.Model):
     model = models.CharField(max_length=20)
     cpu = models.CharField(max_length=20)
     memory = models.CharField(max_length=8)
+    
+    
+    def __str__(self):
+        return self.manufacturer + " " self.model
