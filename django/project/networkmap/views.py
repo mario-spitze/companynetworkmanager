@@ -11,9 +11,15 @@ from .models import Device, DevicePort
 from django.db import transaction
 import json
 
+
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 def index(request):
     return HttpResponse("Hello, world. You're at the networkMap index.")
 
+
+@login_required
 def addDevice(request):
     
     if request.method == 'POST':
@@ -40,6 +46,7 @@ def addDevice(request):
 
     return render(request, 'networkmap/addDevice.html', {'form': form})
 
+@login_required
 def editDevice(request, id):
 
     if request.method == 'POST':
@@ -62,6 +69,7 @@ def editDevice(request, id):
 #        device = Device.getWithPorts(kwargs.get('id'))
 #        return device
 
+@method_decorator(login_required, name='dispatch')
 class DeviceListView(generic.ListView):
     model = Device
     template_name = 'networkmap/listDevices.html'
