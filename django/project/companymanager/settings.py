@@ -1,3 +1,5 @@
+# Copyright 2020 Mario Reichel
+
 """
 Django settings for companymanager project.
 
