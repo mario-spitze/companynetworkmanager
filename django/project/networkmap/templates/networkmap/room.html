@@ -1,0 +1,77 @@
+{% load static %}
+<html>
+    <head>
+        <title>Room Map</title>
+        <script src="{% static 'networkmap/fabric.min.js' %}"></script>
+        <script>
+            window.onload = function () {
+                console.log('Dokument geladen');
+                initCanvas();
+            }
+            var myCanvas;
+            
+            function initCanvas() {
+                
+                myCanvas = new fabric.Canvas('room');
+
+                // create a rectangle with angle=45
+                var rect = new fabric.Rect({
+                    left: 150,
+                    top: 150,
+                    fill: 'red',
+                    width: 20,
+                    height: 20,
+                    angle: 45
+                });
+
+                myCanvas.add(rect);
+                updateList();
+            }
+//            myCanvas.renderAll();
+            var rect;
+
+            function moveCanvas() {
+                rect.set({ left: 20, top: 50 });
+                myCanvas.renderAll();
+            }
+
+            function paintCanvas(){
+
+                // create a rectangle object
+                rect = new fabric.Rect({
+                    left: 100,
+                    top: 100,
+                    fill: 'red',
+                    width: 20,
+                    height: 20
+                });
+
+                // "add" rectangle onto canvas
+                myCanvas.add(rect);
+                updateList();
+
+                rect.on('rotated', resetRect);
+                rect.on('scaling', resetRect);
+
+            }
+            function updateList() {
+                document.getElementById("objectList").innerHTML = myCanvas.getObjects();
+            }
+
+            function resetRect() {
+                rect.set({ scaleX: 1, scaleY: 1 });
+                myCanvas.renderAll();
+            }
+
+        </script>
+    </head>
+    <body>
+
+        <input type="button" onclick="javascript:paintCanvas()" />
+        <input type="button" onclick="javascript:moveCanvas()" value="Move" /><br />
+        <canvas id="room" width="500" height="400" style="border:1px solid #ccc"></canvas>
+        <div id="objectList"></div>
+
+    </body>
+    
+</html>

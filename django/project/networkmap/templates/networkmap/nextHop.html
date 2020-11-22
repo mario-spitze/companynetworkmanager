@@ -1,0 +1,11 @@
+{% load static %}
+
+<script src="{% static 'networkmap/dagre.js' %}"></script>
+<script src="{% static 'networkmap/nomnoml.js' %}"></script>
+
+<canvas id="target-canvas"></canvas>
+<script>
+    var canvas = document.getElementById('target-canvas');
+    var source = '[nomnoml] is -> [awesome]';
+    nomnoml.draw(canvas, source);
+</script>

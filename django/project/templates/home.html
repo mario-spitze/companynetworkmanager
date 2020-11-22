@@ -7,7 +7,7 @@
 {% if user.is_authenticated %}
   Hi {{ user.username }}!<br />
   <a href="{% url 'networkmap:addDevice' %}">Netzwerkgerät hinzufügen</a><br />
-  <a href="{% url 'networkmap:listDevices' %}">Netzwerkgerät auslisten</a><br />
+  <a href="{% url 'networkmap:listDevices' %}">Netzwerkgerät auflisten</a><br />
   <a href="{% url 'computer:lizenzList' %}">Lizenzen auflisten</a><br />
   <br />
   <a href="{% url 'logout' %}">Logout</a><br />

@@ -66,7 +66,7 @@ class DevicePort(Port):
     )
 
     def __str__(self):
-        return self.name
+        return self.name + '@' + self.device.__str__()
 
 class PatchFieldPort(Port):
     patchField = models.ForeignKey(
@@ -75,9 +75,15 @@ class PatchFieldPort(Port):
     )   
     patchFieldPosition = models.IntegerField()
 
+    def __str__(self):
+        return self.name + '@' + self.patchField.__str__()
+
 class PatchField(models.Model): 
     name = models.CharField(max_length=20)
     data = JSONField()
+
+    def __str__(self):
+        return self.name
 
 class Tunnel(models.Model):
     name = models.CharField(max_length=20)
@@ -92,6 +98,9 @@ class Tunnel(models.Model):
         related_name='partB'
     )
     data = JSONField()
+
+    def __str__(self):
+        return self.name + '(FROM: ' + self.partA.__str__() + ' TO: ' + self.partB.__str__() + ')'
 
 class Connection(models.Model):
 

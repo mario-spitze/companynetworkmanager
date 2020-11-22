@@ -6,8 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from django.views import generic
 
-from .forms import AddDeviceForm, EditDeviceForm
-from .models import Device, DevicePort
+from .forms import AddDeviceForm, EditDeviceForm, ConnectDeviceForm
+from .models import Device, DevicePort, PatchField, PatchFieldPort
 from django.db import transaction
 import json
 
@@ -77,3 +77,28 @@ class DeviceListView(generic.ListView):
     def get_queryset(self):
         devices = Device.getListWithPortCount()
         return devices
+
+@login_required
+def connectPort(request, id_port = -1):
+
+    form = ConnectDeviceForm(request.POST)
+
+    form.fields['fromDevice'].queryset = Device.objects.all()
+    form.fields['fromDevicePort'].queryset = DevicePort.objects.all()
+    form.fields['toDevice'].queryset = Device.objects.all()
+    form.fields['toDevicePort'].queryset = DevicePort.objects.all()
+    form.fields['toPatchField'].queryset = PatchField.objects.all()
+    form.fields['toPatchFieldPort'].queryset = PatchFieldPort.objects.all()
+#    form.fields['toDevice'].widget.is_hidden = True
+
+    return render(request, 'networkmap/connectPort.html', {'form': form})
+
+
+@login_required
+def nextHop(request):
+    return render(request, 'networkmap/nextHop.html')
+
+
+@login_required
+def showRoom(request, id_room = -1):
+    return render(request, 'networkmap/room.html')
