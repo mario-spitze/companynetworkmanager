@@ -55,7 +55,7 @@
 
             }
             function updateList() {
-                document.getElementById("objectList").innerHTML = myCanvas.getObjects();
+                document.getElementById("objectList").innerHTML = JSON.stringify(myCanvas);
             }
 
             function resetRect() {
@@ -72,6 +72,7 @@
         <canvas id="room" width="500" height="400" style="border:1px solid #ccc"></canvas>
         <div id="objectList"></div>
 
+        {{ form.as_table }}
     </body>
     
 </html>

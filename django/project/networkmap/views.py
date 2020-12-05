@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
 from django.views import generic
+from django import forms
 
 from .forms import AddDeviceForm, EditDeviceForm, ConnectDeviceForm
 from .models import Device, DevicePort, PatchField, PatchFieldPort
@@ -101,4 +102,9 @@ def nextHop(request):
 
 @login_required
 def showRoom(request, id_room = -1):
-    return render(request, 'networkmap/room.html')
+
+    portForm = forms.Form()
+    portForm.fields['Ports'] = forms.ModelChoiceField(label='Port', initial=-1, queryset=None, required=False)
+    portForm.fields['Ports'].queryset = PatchFieldPort.objects.all()
+
+    return render(request, 'networkmap/room.html', {'form': portForm})
