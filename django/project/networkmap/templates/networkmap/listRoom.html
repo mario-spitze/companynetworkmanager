@@ -1,0 +1,15 @@
+Raumliste Liste
+<br/> <a href="{% url 'networkmap:showNewRoom' %}">Neuer Raum</a>
+<br/><br/>
+<table border="2">
+    <tr>
+        <th>ID</th>
+        <th>Raum</th>
+    </tr>
+    {% for room in object_list %}
+    <tr>
+        <td>{{room.id}}</td>
+        <td>{{room.name}}</td>
+    </tr>
+    {% endfor %}
+</table>

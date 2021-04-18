@@ -125,4 +125,3 @@ class Room(models.Model):
 
     name = models.CharField(max_length=20, default="")
     room_content = JSONField()
-

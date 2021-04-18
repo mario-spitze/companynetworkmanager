@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Room Map</title>
+        
         <script src="{% static 'networkmap/fabric.min.js' %}"></script>
         <script>
             window.onload = function () {
@@ -14,17 +15,6 @@
                 
                 myCanvas = new fabric.Canvas('room');
 
-                // create a rectangle with angle=45
-                var rect = new fabric.Rect({
-                    left: 150,
-                    top: 150,
-                    fill: 'red',
-                    width: 20,
-                    height: 20,
-                    angle: 45
-                });
-
-                myCanvas.add(rect);
                 updateList();
             }
 //            myCanvas.renderAll();
@@ -50,7 +40,7 @@
                 myCanvas.add(rect);
                 updateList();
 
-                rect.on('rotated', resetRect);
+//                rect.on('rotated', resetRect);
                 rect.on('scaling', resetRect);
 
             }
@@ -63,16 +53,63 @@
                 myCanvas.renderAll();
             }
 
+            var LabeledRect = fabric.util.createClass(fabric.Rect, {
+
+                type: 'labeledRect',
+                // initialize can be of type function(options) or function(property, options), like for text.
+                // no other signatures allowed.
+                initialize: function(options) {
+                    options || (options = { });
+
+                        this.callSuper('initialize', options);
+                        this.set('label', options.label || '');
+                        this.set('value', options.value || '');
+                    },
+
+                    toObject: function() {
+                        return fabric.util.object.extend(this.callSuper('toObject'), {
+                            label: this.get('label'), value: this.get('value') });
+                },
+
+                _render: function(ctx) {
+                    this.callSuper('_render', ctx);
+
+                    ctx.font = '20px Helvetica';
+                    ctx.fillStyle = '#333';
+                    ctx.fillText(this.label, -this.width/2, -this.height/2 + 20);
+                }
+            });
+
+            function addPort() {
+                var labeledRect = new LabeledRect({
+                    width: 100,
+                    height: 50,
+                    left: 100,
+                    top: 100,
+                    label: document.getElementById("id_ports")[document.getElementById("id_ports").value].label,
+                    value: document.getElementById("id_ports").value,
+                    fill: '#faa'
+                });
+                myCanvas.add(labeledRect);
+                updateList();
+            }
+
+
         </script>
     </head>
     <body>
-
+    <form method="post" action="{% url 'networkmap:saveRoom' id_room %}">
+        {% csrf_token %}
         <input type="button" onclick="javascript:paintCanvas()" />
-        <input type="button" onclick="javascript:moveCanvas()" value="Move" /><br />
+        <input type="button" onclick="javascript:moveCanvas()" value="Move" />
         <canvas id="room" width="500" height="400" style="border:1px solid #ccc"></canvas>
         <div id="objectList"></div>
-
-        {{ form.as_table }}
+        <table>
+            {{ form.as_table }}
+        <input type="button" value="hinzufügen" onclick="javascript:addPort()">
+        </table>
+        <input type="submit" />
+    </form>
     </body>
     
 </html>

@@ -7,8 +7,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django import forms
 
-from .forms import AddDeviceForm, EditDeviceForm, ConnectDeviceForm
-from .models import Device, DevicePort, PatchField, PatchFieldPort
+from .forms import AddDeviceForm, EditDeviceForm, ConnectDeviceForm, RoomForm
+from .models import Device, DevicePort, PatchField, PatchFieldPort, Room
 from django.db import transaction
 import json
 
@@ -103,8 +103,29 @@ def nextHop(request):
 @login_required
 def showRoom(request, id_room = -1):
 
-    portForm = forms.Form()
-    portForm.fields['Ports'] = forms.ModelChoiceField(label='Port', initial=-1, queryset=None, required=False)
-    portForm.fields['Ports'].queryset = PatchFieldPort.objects.all()
+    portForm = RoomForm()
+    portForm.fields['ports'].queryset = PatchField.objects.all()
+#    portForm.fields['addCmd'] = forms.Input(type='Button', label='Hinzufügen')
 
-    return render(request, 'networkmap/room.html', {'form': portForm})
+    return render(request, 'networkmap/room.html', {'form': portForm, 'id_room': id_room})
+
+def saveRoom(request, id_room = -1):
+
+    editRoom = None
+    if request.method == 'POST':
+
+        roomForm = RoomForm(request.POST)
+        roomForm.is_valid()
+        roomName = roomForm.cleaned_data['roomName']
+        if id_room == -1:
+            editRoom = Room.objects.create(name=roomName)
+        else:
+            editRoom = Room.objects.get(id_room)
+        
+    return HttpResponseRedirect('/networkmap/listRoom')
+
+@method_decorator(login_required, name='dispatch')
+class ListRoomView(generic.ListView):
+    model = Room
+    template_name = 'networkmap/listRoom.html'
+

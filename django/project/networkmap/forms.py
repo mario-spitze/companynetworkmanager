@@ -1,5 +1,5 @@
 from django import forms
-from .models import Device
+from .models import Device, Room
 from django.db.models.query import EmptyQuerySet
 
 class AddDeviceForm(forms.Form):
@@ -27,3 +27,10 @@ class ConnectDeviceForm(forms.Form):
     toDevicePort = forms.ModelChoiceField(label='Nach Port', initial=-1, queryset=None, required=False)
     toPatchField = forms.ModelChoiceField(label='Nach Patchfeld', initial=-1, queryset=None, required=False)
     toPatchFieldPort = forms.ModelChoiceField(label='Nach Port', initial=-1, queryset=None, required=False)
+
+class RoomForm(forms.Form):
+    class Meta:
+        model = Room
+
+    ports = forms.ModelChoiceField(label='Port', initial=-1, queryset=None, required=False)
+    roomName = forms.CharField(label='Name', max_length=20, required=False)
