@@ -12,7 +12,7 @@ class Device(models.Model):
         on_delete=models.CASCADE,
         blank=True, null = True, default = None)
 
-    inventNumber = models.IntegerField(default=-1)
+    inventNumber = models.CharField(max_length=16, default="0000")
 
     def __str__(self):
         return self.deviceName
