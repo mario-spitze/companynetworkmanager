@@ -17,10 +17,13 @@ class Article(models.Model):
     status = models.CharField(
         max_length=1,
         choices=ArticleStatusType.choices,
+        default=ArticleStatusType.NEW
     )
 
 #inventar
 class Equipment(models.Model):
-    base = models.ForeignKey('Software',
+    base = models.ForeignKey('Article',
         on_delete=models.CASCADE)
-    sn = models.CharField(max_length=15)
+    sn = models.CharField(max_length=20)
+    inventarNr = models.CharField(max_length=14)
+
