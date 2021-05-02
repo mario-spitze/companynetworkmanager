@@ -37,6 +37,7 @@ DEBUG = True
 INSTALLED_APPS = [
     'networkmap.apps.NetworkmapConfig',
     'computer.apps.ComputerConfig',
+    'inventory.apps.InventoryConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
