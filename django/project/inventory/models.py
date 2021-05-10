@@ -20,10 +20,16 @@ class Article(models.Model):
         default=ArticleStatusType.NEW
     )
 
+    def __str__(self):
+        return self.name
+
 #inventar
 class Equipment(models.Model):
     base = models.ForeignKey('Article',
         on_delete=models.CASCADE)
     sn = models.CharField(max_length=20)
     inventarNr = models.CharField(max_length=14)
+
+    def __str__(self):
+        return self.base.__str__() + " (" +  self.sn + ")"
 

@@ -20,3 +20,6 @@ class InventarTestCase(TestCase):
         e1 = Equipment.objects.get(inventarNr=123)
         self.assertEqual(e1.base.name, "Keyboard")
 
+        self.assertEqual(o1.__str__(), "Keyboard")
+        self.assertEqual(e1.__str__(), "Keyboard (245ABT789)")
+
