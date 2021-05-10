@@ -9,6 +9,9 @@ class Article(models.Model):
     ean = models.IntegerField()
     name = models.CharField(max_length=26)
     description = models.TextField()
+    hardwareClass = models.ForeignKey('HardwareClass',
+        models.SET_NULL, null = True)
+
     class ArticleStatusType(models.TextChoices):
         NEW = 'N', _('new')
         ACTIVE = 'A', _('active')
@@ -32,4 +35,7 @@ class Equipment(models.Model):
 
     def __str__(self):
         return self.base.__str__() + " (" +  self.sn + ")"
+
+class HardwareClass(models.Model):
+    name = models.CharField(max_length=20)
 
