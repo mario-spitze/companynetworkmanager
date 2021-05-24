@@ -1,0 +1,13 @@
+classDiagram
+    HardwareType "1" --> "*" Article : typeOf
+    Article "1" --> "*" Equipment : instance
+
+    handover --> Customer : give
+
+    handover --> Workplace : give
+    handover --> Equipment : thing
+    handover --> Article : thing Without ID
+    
+    Customer --> Workplace : use
+
+    HardwareType : String name

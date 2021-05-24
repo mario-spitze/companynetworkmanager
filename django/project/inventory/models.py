@@ -24,7 +24,7 @@ class Article(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.hardwareClass.__str__() + " : " + self.name
 
 #inventar
 class Equipment(models.Model):
@@ -38,4 +38,6 @@ class Equipment(models.Model):
 
 class HardwareClass(models.Model):
     name = models.CharField(max_length=20)
+    def __str__(self):
+        return self.name
 

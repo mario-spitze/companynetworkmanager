@@ -6,3 +6,4 @@ from .models import *
 
 admin.site.register(Article)
 admin.site.register(Equipment)
+admin.site.register(HardwareClass)
