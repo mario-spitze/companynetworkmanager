@@ -41,3 +41,13 @@ class HardwareClass(models.Model):
     def __str__(self):
         return self.name
 
+class Workplace(models.Model):
+    place = models.CharField(max_length=5)
+    room = models.CharField(max_length=10)
+    def __str__(self):
+        return self.name
+
+class Customer(models.Model):
+    name = models.CharField(max_length=30)
+    def __str__(self):
+        return self.name
