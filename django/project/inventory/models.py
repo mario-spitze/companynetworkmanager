@@ -1,7 +1,8 @@
 from django.db import models
 
 from networkmap.models import Device
-
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import gettext_lazy as _
 
 #catalog
@@ -51,3 +52,16 @@ class Customer(models.Model):
     name = models.CharField(max_length=30)
     def __str__(self):
         return self.name
+
+class Handover(models.Model):
+    timestamp = models.DateTimeField(auto_now_add=True)
+    user_object_id = models.IntegerField()
+    user_content_type = models.ForeignKey(
+        ContentType,
+        on_delete=models.PROTECT,
+    )
+    user = GenericForeignKey(
+        'user_content_type',
+        'user_object_id',
+    )
+

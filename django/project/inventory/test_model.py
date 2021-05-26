@@ -16,6 +16,8 @@ class InventarTestCase(TestCase):
 
         w1 = Workplace.objects.create(place="AP1", room="01.34")
 
+        h1 = Handover.objects.create(user_content_type = ContentType.objects.get_for_model(u1), user_object_id = u1.pk)
+
     def test_inventar(self):
         o1 = Article.objects.get(name="Keyboard")
         o2 = Article.objects.get(ean=64729352)
@@ -36,4 +38,7 @@ class InventarTestCase(TestCase):
 
         w1 = Workplace.objects.get(room="01.34")
         self.assertEqual(w1.__str__(), "01.34 - AP1")
+
+        h1 = Handover.objects.first()
+        self.assertEqual(h1.user.__str__(), "Klaus")
 
