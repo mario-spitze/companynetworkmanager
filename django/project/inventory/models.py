@@ -45,7 +45,7 @@ class Workplace(models.Model):
     place = models.CharField(max_length=5)
     room = models.CharField(max_length=10)
     def __str__(self):
-        return self.name
+        return self.room + " - " + self.place
 
 class Customer(models.Model):
     name = models.CharField(max_length=30)

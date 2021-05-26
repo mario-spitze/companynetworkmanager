@@ -10,6 +10,12 @@ class InventarTestCase(TestCase):
 
         Equipment.objects.create(base=o1, sn="245ABT789", inventarNr=123)
 
+
+        u1 = Customer.objects.create(name="Klaus")
+        u2 = Customer.objects.create(name="Peter")
+
+        w1 = Workplace.objects.create(place="AP1", room="01.34")
+
     def test_inventar(self):
         o1 = Article.objects.get(name="Keyboard")
         o2 = Article.objects.get(ean=64729352)
@@ -22,8 +28,12 @@ class InventarTestCase(TestCase):
         e1 = Equipment.objects.get(inventarNr=123)
         self.assertEqual(e1.base.name, "Keyboard")
 
-        self.assertEqual(o1.__str__(), "Keyboard")
-        self.assertEqual(e1.__str__(), "Keyboard (245ABT789)")
+        self.assertEqual(o1.__str__(), "Keyboards : Keyboard")
+        self.assertEqual(e1.__str__(), "Keyboards : Keyboard (245ABT789)")
 
         self.assertEqual(Article.objects.count(), 2)
+
+
+        w1 = Workplace.objects.get(room="01.34")
+        self.assertEqual(w1.__str__(), "01.34 - AP1")
 
