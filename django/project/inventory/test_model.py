@@ -42,3 +42,5 @@ class InventarTestCase(TestCase):
         h1 = Handover.objects.first()
         self.assertEqual(h1.user.__str__(), "Klaus")
 
+        print(h1.timestamp)
+

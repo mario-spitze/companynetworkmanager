@@ -55,13 +55,26 @@ class Customer(models.Model):
 
 class Handover(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
+
     user_object_id = models.IntegerField()
     user_content_type = models.ForeignKey(
         ContentType,
+        related_name='user_content',
         on_delete=models.PROTECT,
     )
     user = GenericForeignKey(
         'user_content_type',
         'user_object_id',
+    )
+
+    thing_object_id = models.IntegerField(default = -1)
+    thing_content_type = models.ForeignKey(
+        ContentType,
+        related_name='thing_content',
+        on_delete=models.PROTECT, blank=True, null=True
+    )
+    thing = GenericForeignKey(
+        'thing_content_type',
+        'thing_object_id',
     )
 
