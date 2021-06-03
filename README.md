@@ -17,3 +17,4 @@ Manage your IT: take inventory of your devices and mold you network
 * `docker-compose build`
 * `docker-compose up -d`
     or without -d for debugging
+* create superuser by 'docker exec -it <id> python manage.py createsuperuser'
