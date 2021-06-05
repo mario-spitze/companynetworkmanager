@@ -6,6 +6,7 @@ class InventarTestCase(TestCase):
         t1 = HardwareClass.objects.create(name="Keyboards")
         t2 = HardwareClass.objects.create(name="Display")
         o1 = Article.objects.create(name="Keyboard", ean=12345678, hardwareClass=t1)
+        o3 = Article.objects.create(name="Monitor 22\"", hardwareClass=t2)
         o2 = Article.objects.create(name="Monitor", ean=64729352, hardwareClass=HardwareClass.objects.get(name="Display"))
 
         Equipment.objects.create(base=o1, sn="245ABT789", inventarNr=123)
@@ -33,7 +34,7 @@ class InventarTestCase(TestCase):
         self.assertEqual(o1.__str__(), "Keyboards : Keyboard")
         self.assertEqual(e1.__str__(), "Keyboards : Keyboard (245ABT789)")
 
-        self.assertEqual(Article.objects.count(), 2)
+        self.assertEqual(Article.objects.count(), 3)
 
 
         w1 = Workplace.objects.get(room="01.34")

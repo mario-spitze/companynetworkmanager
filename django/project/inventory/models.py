@@ -7,9 +7,9 @@ from django.utils.translation import gettext_lazy as _
 
 #catalog
 class Article(models.Model):
-    ean = models.IntegerField()
+    ean = models.IntegerField(blank=True, null=True)
     name = models.CharField(max_length=26)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     hardwareClass = models.ForeignKey('HardwareClass',
         models.SET_NULL, null = True)
 
@@ -31,11 +31,14 @@ class Article(models.Model):
 class Equipment(models.Model):
     base = models.ForeignKey('Article',
         on_delete=models.CASCADE)
-    sn = models.CharField(max_length=20)
-    inventarNr = models.CharField(max_length=14)
+    sn = models.CharField(max_length=20, blank=True, null=True)
+    inventarNr = models.CharField(max_length=14, blank=True, null=True)
 
     def __str__(self):
-        return self.base.__str__() + " (" +  self.sn + ")"
+        output = self.base.__str__()
+        if self.sn:
+            output = output + " (" +  self.sn + ")"
+        return output
 
 class HardwareClass(models.Model):
     name = models.CharField(max_length=20)
