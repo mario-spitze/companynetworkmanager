@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.views import generic
 
-from .models import Equipment, Handover, Workplace
+from .models import BulkArticle, Equipment, Handover, Workplace
 
 from .forms import HandoverForm
 
@@ -13,9 +13,12 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
+from itertools import chain
+
 @method_decorator(login_required, name='dispatch')
 class EquipmentListView(generic.ListView):
-    model = Equipment
+    def get_queryset(self):
+        return list(chain(Equipment.objects.all(), BulkArticle.objects.all()))
     template_name = 'inventory/listEquipment.html'
 
 @method_decorator(login_required, name='dispatch')

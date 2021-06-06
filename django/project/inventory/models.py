@@ -27,6 +27,9 @@ class Article(models.Model):
     def __str__(self):
         return self.hardwareClass.__str__() + " : " + self.name
 
+class BulkArticle(Article):
+    stock = models.IntegerField(default=0)
+
 #inventar
 class Equipment(models.Model):
     base = models.ForeignKey('Article',

@@ -9,7 +9,8 @@
     </tr>
     {% for equipment in object_list %}
     <tr>
-        <td>{{ equipment.base }}</td>
+        <td>{{ equipment}}</td>
+        <td>{{ equipment.stock }}</td>
         <td>{{ equipment.sn }}</td>
         <td>{{ equipment.age }}</td>
         <td><a href="{% url 'inventory:createHandover' equipment.id %}">Verleihen</a></td>
