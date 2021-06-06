@@ -88,3 +88,5 @@ class Handover(models.Model):
         'thing_object_id',
     )
 
+    def __str__(self):
+        return self.thing.__str__() + "laid to" + self.user.__str__()
