@@ -40,6 +40,13 @@ class Equipment(models.Model):
             output = output + " (" +  self.sn + ")"
         return output
 
+    @property
+    def age(self):
+        lastHandover = Handover.objects.first()
+        if lastHandover==None:
+            lastHandover = "neu"
+        return lastHandover
+
 class HardwareClass(models.Model):
     name = models.CharField(max_length=20)
     def __str__(self):
