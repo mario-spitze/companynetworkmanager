@@ -30,6 +30,10 @@ class Article(models.Model):
 class BulkArticle(Article):
     stock = models.IntegerField(default=0)
 
+    @property
+    def getType(self):
+        return "bulkArticle"
+
 #inventar
 class Equipment(models.Model):
     base = models.ForeignKey('Article',
@@ -42,6 +46,10 @@ class Equipment(models.Model):
         if self.sn:
             output = output + " (" +  self.sn + ")"
         return output
+
+    @property
+    def getType(self):
+        return "equipment"
 
     @property
     def age(self):

@@ -27,15 +27,21 @@ class EquipmentDetailsView(generic.DetailView):
     template_name = 'inventory/detailEquipment.html'
 
 @login_required
-def createHandover(request, pk):
+def createHandover(request, objType, pk):
     
     if request.method == 'POST':
         
         form = HandoverForm(request.POST)
         if form.is_valid():
 
-            equipment = Equipment.objects.get(id=pk)
+            equipment = None
+            if objType == "equipment":
+                equipment = Equipment.objects.get(id=pk)
+            else:
+                equipment = BulkArticle.objects.get(id=pk)
+            
             newHandover = Handover()
+
             newHandover.thing_content_type = ContentType.objects.get_for_model(equipment)
             newHandover.thing_object_id = pk
 
@@ -51,4 +57,4 @@ def createHandover(request, pk):
     else:
         form = HandoverForm()
 
-    return render(request, 'inventory/setHandover.html', {'form': form, 'pk': pk})
+    return render(request, 'inventory/setHandover.html', {'form': form, 'objType':objType, 'pk': pk})

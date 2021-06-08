@@ -6,5 +6,5 @@ app_name = 'inventory'
 urlpatterns = [
     path('listEquipment/', views.EquipmentListView.as_view(), name='listEquipment'),
     path('detailEquipment/<int:pk>', views.EquipmentDetailsView.as_view(), name='detailEquipment'),
-    path('createHandover/<int:pk>', views.createHandover, name='createHandover'),
+    path('createHandover/<slug:objType>/<int:pk>/', views.createHandover, name='createHandover'),
 ]

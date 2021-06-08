@@ -1,6 +1,6 @@
 Ausleihen
 
-<form action="{% url 'inventory:createHandover' pk %}" method="post">
+<form action="{% url 'inventory:createHandover' objType pk %}" method="post">
     {% csrf_token %}
     <table>
         {{ form.as_table }}
