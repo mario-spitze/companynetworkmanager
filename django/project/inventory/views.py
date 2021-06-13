@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.views import generic
 
-from .models import BulkArticle, Equipment, Handover, Workplace
+from .models import BulkArticle, Customer, Equipment, Handover, Workplace
 
 from .forms import HandoverForm
 
@@ -25,6 +25,18 @@ class EquipmentListView(generic.ListView):
 class EquipmentDetailsView(generic.DetailView):
     model = Equipment
     template_name = 'inventory/detailEquipment.html'
+
+
+@method_decorator(login_required, name='dispatch')
+class WorkplaceListView(generic.ListView):
+    model = Workplace
+    template_name = 'inventory/listWorkplace.html'
+    
+@method_decorator(login_required, name='dispatch')
+class CustomerListView(generic.ListView):
+    model = Customer
+    template_name = 'inventory/listCustomer.html'
+    
 
 @login_required
 def createHandover(request, objType, pk):

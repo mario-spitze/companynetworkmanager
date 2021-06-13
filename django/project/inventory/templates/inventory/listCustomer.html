@@ -1,0 +1,13 @@
+<h1>Geräteliste</h1>
+
+<table border="2">
+    <tr>
+        <th>Name</th>
+        <th>Details</th>
+    </tr>
+    {% for customer in object_list %}
+    <tr>
+        <td>{{ customer.name}}</td>
+    </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,15 @@
+<h1>Geräteliste</h1>
+
+<table border="2">
+    <tr>
+        <th>Room</th>
+        <th>Place</th>
+        <th>Details</th>
+    </tr>
+    {% for workplace in object_list %}
+    <tr>
+        <td>{{ workplace.room}}</td>
+        <td>{{ workplace.place }}</td>
+    </tr>
+    {% endfor %}
+</table>
