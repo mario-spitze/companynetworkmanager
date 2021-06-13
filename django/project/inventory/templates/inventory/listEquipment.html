@@ -2,17 +2,15 @@
 
 <table border="2">
     <tr>
-        <th>id</th>
         <th>Name</th>
-        <th>Location</th>
-        <th>Ports</th>
+        <th>SN or Count</th>
+        <th>Position</th>
     </tr>
     {% for equipment in object_list %}
     <tr>
         <td>{{ equipment}}</td>
-        <td>{{ equipment.stock }}</td>
-        <td>{{ equipment.sn }}</td>
-        <td>{{ equipment.age }}</td>
+        <td>{{ equipment.sn }}{{ equipment.stock }}</td>
+        <td>{{ equipment.getLastUser }}</td>
         <td><a href="{% url 'inventory:createHandover' equipment.getType equipment.id %}">Verleihen</a></td>
     </tr>
     {% endfor %}

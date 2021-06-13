@@ -5,6 +5,16 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import gettext_lazy as _
 
+class HandoverHelper():
+    @property
+    def getLastUser(self):
+        lastHandover = Handover.objects.filter(
+            thing_object_id=self.pk, 
+            thing_content_type=ContentType.objects.get_for_model(self)).order_by('timestamp').last()
+        if lastHandover==None:
+            lastHandover = "neu"
+        return lastHandover
+
 #catalog
 class Article(models.Model):
     ean = models.IntegerField(blank=True, null=True)
@@ -27,7 +37,7 @@ class Article(models.Model):
     def __str__(self):
         return self.hardwareClass.__str__() + " : " + self.name
 
-class BulkArticle(Article):
+class BulkArticle(Article, HandoverHelper):
     stock = models.IntegerField(default=0)
 
     @property
@@ -35,7 +45,7 @@ class BulkArticle(Article):
         return "bulkArticle"
 
 #inventar
-class Equipment(models.Model):
+class Equipment(models.Model, HandoverHelper):
     base = models.ForeignKey('Article',
         on_delete=models.CASCADE)
     sn = models.CharField(max_length=20, blank=True, null=True)
@@ -50,13 +60,6 @@ class Equipment(models.Model):
     @property
     def getType(self):
         return "equipment"
-
-    @property
-    def age(self):
-        lastHandover = Handover.objects.first()
-        if lastHandover==None:
-            lastHandover = "neu"
-        return lastHandover
 
 class HardwareClass(models.Model):
     name = models.CharField(max_length=20)
@@ -73,6 +76,7 @@ class Customer(models.Model):
     name = models.CharField(max_length=30)
     def __str__(self):
         return self.name
+
 
 class Handover(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -100,4 +104,4 @@ class Handover(models.Model):
     )
 
     def __str__(self):
-        return self.thing.__str__() + "laid to" + self.user.__str__()
+        return self.thing.__str__() + "laid to" + self.user.__str__() + " (" + str(self.pk) + ")"

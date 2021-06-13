@@ -46,15 +46,24 @@ def createHandover(request, objType, pk):
             newHandover.thing_object_id = pk
 
             workplace = form.cleaned_data['workplace']
-#            workplace = Workplace.objects.get(workplaceId)
-            newHandover.user_object_id = workplace.id
-            newHandover.user_content_type =  ContentType.objects.get_for_model(workplace)
+            customer = form.cleaned_data['customer']
 
-            newHandover.save()
+            recipient = None
 
-            return HttpResponseRedirect('/inventory/listEquipment/')
+            if workplace == None and customer != None:
+                recipient = customer
+            elif workplace != None and customer == None:
+                recipient = workplace
+
+            if recipient != None:
+                newHandover.user_object_id = recipient.id
+                newHandover.user_content_type =  ContentType.objects.get_for_model(recipient)
+
+                newHandover.save()
+
+                return HttpResponseRedirect('/inventory/listEquipment/')
 
     else:
         form = HandoverForm()
 
-    return render(request, 'inventory/setHandover.html', {'form': form, 'objType':objType, 'pk': pk})
+    return render(request, 'inventory/createHandover.html', {'form': form, 'objType':objType, 'pk': pk})
