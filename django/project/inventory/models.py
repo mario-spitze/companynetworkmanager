@@ -67,8 +67,8 @@ class HardwareClass(models.Model):
         return self.name
 
 class Workplace(models.Model):
-    place = models.CharField(max_length=5)
     room = models.CharField(max_length=10)
+    place = models.CharField(max_length=5)
     def __str__(self):
         return self.room + " - " + self.place
 

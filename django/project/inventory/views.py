@@ -26,11 +26,22 @@ class EquipmentDetailsView(generic.DetailView):
     model = Equipment
     template_name = 'inventory/detailEquipment.html'
 
-
 @method_decorator(login_required, name='dispatch')
 class WorkplaceListView(generic.ListView):
     model = Workplace
     template_name = 'inventory/listWorkplace.html'
+
+@method_decorator(login_required, name='dispatch')
+class WorkplaceDetailsView(generic.DetailView):
+    model = Workplace
+
+    def get_object(self, queryset=None):
+        obj = super(WorkplaceDetailsView, self).get_object(queryset=queryset)
+        obj.handovers = Handover.objects.filter(
+            user_object_id=obj.pk, 
+            user_content_type=ContentType.objects.get_for_model(obj))
+        return obj
+    template_name = 'inventory/detailWorkplace.html'
     
 @method_decorator(login_required, name='dispatch')
 class CustomerListView(generic.ListView):
