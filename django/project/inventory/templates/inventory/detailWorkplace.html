@@ -7,11 +7,13 @@
 Ausstattung:
 <table border="2">
     <tr>
-        <th>Room</th>
+        <th>Material</th>
+        <th>Function</th>
     </tr>
     {% for handover in object.handovers %}
     <tr>
         <td>{{ handover}}</td>
+        <td><a href="{% url 'inventory:giveBack' handover.id %}">give back</a></td>
     </tr>
     {% endfor %}
 </table>

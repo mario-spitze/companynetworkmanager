@@ -81,6 +81,15 @@ class Customer(models.Model):
 class Handover(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
+    class MovementType(models.IntegerChoices):
+        LAY = 21
+        LAYBACK = 22
+
+    movementType = models.IntegerField(
+        choices=MovementType.choices,
+        default=MovementType.LAY
+    )
+
     user_object_id = models.IntegerField()
     user_content_type = models.ForeignKey(
         ContentType,
@@ -103,5 +112,21 @@ class Handover(models.Model):
         'thing_object_id',
     )
 
+    def getThing(self):
+        thing = None
+        if self.thing_content_type == ContentType.objects.get_for_model(Equipment):
+            thing = Equipment.objects.get(id=self.thing_object_id)
+        else:
+            thing = BulkArticle.objects.get(id=self.thing_object_id)
+        return thing
+
+    def getUser(self):
+        user = None
+        if self.user_content_type == ContentType.objects.get_for_model(Workplace):
+            user = Workplace.objects.get(id=self.user_object_id)
+        else:
+            user = Customer.objects.get(id=self.user_object_id)
+        return user
+
     def __str__(self):
-        return self.thing.__str__() + "laid to" + self.user.__str__() + " (" + str(self.pk) + ")"
+        return self.thing.__str__() + " laid to " + self.user.__str__() + " (" + str(self.pk) + ")"

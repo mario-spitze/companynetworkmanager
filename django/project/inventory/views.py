@@ -81,7 +81,7 @@ def createHandover(request, objType, pk):
             if recipient != None:
                 newHandover.user_object_id = recipient.id
                 newHandover.user_content_type =  ContentType.objects.get_for_model(recipient)
-
+                newHandover.movementType = Handover.MovementType.LAY
                 newHandover.save()
 
                 return HttpResponseRedirect('/inventory/listEquipment/')
@@ -90,3 +90,25 @@ def createHandover(request, objType, pk):
         form = HandoverForm()
 
     return render(request, 'inventory/createHandover.html', {'form': form, 'objType':objType, 'pk': pk})
+
+@login_required
+def giveBack(request, handoverID):
+    
+    handoverObj = Handover.objects.get(id=handoverID)
+
+    user = handoverObj.getUser()
+    thing = handoverObj.getThing()
+
+    if request.method == 'POST':
+        newHandover = Handover()
+
+        newHandover.thing_content_type = ContentType.objects.get_for_model(thing)
+        newHandover.thing_object_id = thing.id
+        newHandover.user_object_id = user.id
+        newHandover.user_content_type =  ContentType.objects.get_for_model(user)
+        newHandover.movementType = Handover.MovementType.LAYBACK
+        newHandover.save()
+
+        return HttpResponseRedirect('/inventory/detailWorkplace/' + str(user.id))
+
+    return render(request, 'inventory/giveBack.html', { 'user':user, 'thing':thing })
