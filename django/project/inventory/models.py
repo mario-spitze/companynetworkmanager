@@ -112,6 +112,9 @@ class Handover(models.Model):
         'thing_object_id',
     )
 
+    oppositeHandover = models.ForeignKey('Handover',
+        models.SET_NULL, null = True)
+
     def getThing(self):
         thing = None
         if self.thing_content_type == ContentType.objects.get_for_model(Equipment):
@@ -129,4 +132,11 @@ class Handover(models.Model):
         return user
 
     def __str__(self):
-        return self.thing.__str__() + " laid to " + self.user.__str__() + " (" + str(self.pk) + ")"
+        output = self.thing.__str__()
+        if self.movementType == Handover.MovementType.LAY:
+            output = output + " laid to "
+        else:
+            output = output + " laid back from "
+        output = output + self.user.__str__() + " (" + str(self.pk) + ")"
+
+        return output

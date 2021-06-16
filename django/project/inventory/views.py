@@ -38,6 +38,8 @@ class WorkplaceDetailsView(generic.DetailView):
     def get_object(self, queryset=None):
         obj = super(WorkplaceDetailsView, self).get_object(queryset=queryset)
         obj.handovers = Handover.objects.filter(
+            movementType=Handover.MovementType.LAY,
+            oppositeHandover=None,
             user_object_id=obj.pk, 
             user_content_type=ContentType.objects.get_for_model(obj))
         return obj
@@ -94,13 +96,17 @@ def createHandover(request, objType, pk):
 @login_required
 def giveBack(request, handoverID):
     
-    handoverObj = Handover.objects.get(id=handoverID)
+    oldHandover = Handover.objects.get(id=handoverID)
 
-    user = handoverObj.getUser()
-    thing = handoverObj.getThing()
+    user = oldHandover.getUser()
+    thing = oldHandover.getThing()
 
     if request.method == 'POST':
+
         newHandover = Handover()
+
+        newHandover.oppositeHandover = oldHandover
+        oldHandover.oppositeHandover = newHandover
 
         newHandover.thing_content_type = ContentType.objects.get_for_model(thing)
         newHandover.thing_object_id = thing.id
@@ -108,6 +114,7 @@ def giveBack(request, handoverID):
         newHandover.user_content_type =  ContentType.objects.get_for_model(user)
         newHandover.movementType = Handover.MovementType.LAYBACK
         newHandover.save()
+        oldHandover.save()
 
         return HttpResponseRedirect('/inventory/detailWorkplace/' + str(user.id))
 
