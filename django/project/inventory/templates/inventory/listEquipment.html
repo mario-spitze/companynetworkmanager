@@ -1,5 +1,8 @@
-<h1>Geräteliste</h1>
+{% extends 'content.html' %}
 
+{% block title %}Geräteliste{% endblock %}
+
+{% block content %}
 <table border="2">
     <tr>
         <th>Name</th>
@@ -15,3 +18,4 @@
     </tr>
     {% endfor %}
 </table>
+{% endblock %}

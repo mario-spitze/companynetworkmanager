@@ -1,5 +1,8 @@
-<h1>Geräteliste</h1>
+{% extends 'content.html' %}
 
+{% block title %}Arbeitsplätze{% endblock %}
+
+{% block content %}
 <table border="2">
     <tr>
         <th>Room</th>
@@ -14,3 +17,4 @@
     </tr>
     {% endfor %}
 </table>
+{% endblock %}
