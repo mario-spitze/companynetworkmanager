@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.views import generic
 
-from .models import BulkArticle, Customer, Equipment, Handover, Workplace
+from .models import BulkArticle, Customer, Equipment, Handover, HardwareClass, Workplace
 
 from .forms import HandoverForm
 
@@ -14,6 +14,17 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 from itertools import chain
+from django.urls import reverse_lazy
+
+class HardwareClassCreateView(generic.CreateView):
+    model = HardwareClass
+    fields = ['name']
+    success_url = reverse_lazy('inventory:listHardwareClass')
+
+@method_decorator(login_required, name='dispatch')
+class HardwareClassListView(generic.ListView):
+    model = HardwareClass
+    template_name = 'inventory/listHardwareClass.html'
 
 @method_decorator(login_required, name='dispatch')
 class EquipmentListView(generic.ListView):
