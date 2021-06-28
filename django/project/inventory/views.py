@@ -26,6 +26,12 @@ class HardwareClassListView(generic.ListView):
     model = HardwareClass
     template_name = 'inventory/listHardwareClass.html'
 
+class EquipmentCreateView(generic.CreateView):
+    model = Equipment
+    fields = ['base', 'sn', 'inventarNr' ]
+    template_name = 'inventory/createEquipment.html'
+    success_url = reverse_lazy('inventory:listEquipment')
+
 @method_decorator(login_required, name='dispatch')
 class EquipmentListView(generic.ListView):
     def get_queryset(self):
