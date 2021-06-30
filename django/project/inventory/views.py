@@ -2,9 +2,9 @@ from django.shortcuts import render
 
 from django.views import generic
 
-from .models import BulkArticle, Customer, Equipment, Handover, HardwareClass, Workplace
+from .models import Article, BulkArticle, Customer, Equipment, Handover, HardwareClass, Workplace
 
-from .forms import HandoverForm
+from .forms import ArticleCreateForm, HandoverForm
 
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -42,6 +42,35 @@ class EquipmentListView(generic.ListView):
 class EquipmentDetailsView(generic.DetailView):
     model = Equipment
     template_name = 'inventory/detailEquipment.html'
+
+
+@login_required
+def createArticle(request):
+    
+    if request.method == 'POST':
+
+        form = ArticleCreateForm(request.POST)
+        if form.is_valid():
+            type = form.cleaned_data['type']
+            name = form.cleaned_data['name']
+            ean = form.cleaned_data['ean']
+            hardwareClass = form.cleaned_data['hardwareClass']
+            newArticle = None
+            if(type=="b"):
+                newArticle = BulkArticle(name=name, ean=ean, hardwareClass=hardwareClass)
+            elif(type=="i"):
+                newArticle = Article(name=name, ean=ean, hardwareClass=hardwareClass)
+
+            newArticle.save()
+
+            return HttpResponseRedirect('/inventory/listEquipment/')
+
+    else:
+        form = ArticleCreateForm()
+
+    return render(request, 'inventory/createArticle.html', {'form': form})
+
+    
 
 @method_decorator(login_required, name='dispatch')
 class WorkplaceListView(generic.ListView):
