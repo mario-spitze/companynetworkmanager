@@ -15,7 +15,12 @@
     <tr>
         <td>{{ article}}</td>
         <td>{{ article.ean }}</td>
-        <td>{{ article.getType }}</td>
+        <td>{% if article.getType == "bulkart" %}
+        Bulk Article
+        {% else %}
+        Individual Article
+        {% endif %}
+        </td>
         <td>{{ article.status }}</td>
         <td>{{ article.getCount }}</td>
     </tr>

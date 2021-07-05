@@ -44,8 +44,8 @@ class Article(models.Model):
     @property
     def getType(self):
         if hasattr(self, 'bulkarticle'):
-            return "Bulk Article"
-        return "Individual Article"
+            return "bulkart"
+        return "indart"
 
     def __str__(self):
         return self.hardwareClass.__str__() + " : " + self.name
