@@ -70,7 +70,11 @@ def createArticle(request):
 
     return render(request, 'inventory/createArticle.html', {'form': form})
 
-    
+@method_decorator(login_required, name='dispatch')
+class ArticleListView(generic.ListView):
+    def get_queryset(self):
+        return Article.objects.all()
+    template_name = 'inventory/listArticle.html'  
 
 @method_decorator(login_required, name='dispatch')
 class WorkplaceListView(generic.ListView):

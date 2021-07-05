@@ -1,0 +1,24 @@
+{% extends 'content.html' %}
+
+{% block title %}Artikelliste{% endblock %}
+
+{% block content %}
+<table border="2">
+    <tr>
+        <th>Name</th>
+        <th>EAN</th>
+        <th>Typ</th>
+        <th>Status</th>
+        <th>Anzahl</th>
+    </tr>
+    {% for article in object_list %}
+    <tr>
+        <td>{{ article}}</td>
+        <td>{{ article.ean }}</td>
+        <td>{{ article.getType }}</td>
+        <td>{{ article.status }}</td>
+        <td>{{ article.getCount }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -3,7 +3,7 @@ from django.db import models
 from networkmap.models import Device
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, override
 
 class HandoverHelper():
     @property
@@ -34,15 +34,24 @@ class Article(models.Model):
         default=ArticleStatusType.NEW
     )
 
+    @property
+    def getCount(self):
+        if hasattr(self, 'bulkarticle'):
+            return self.bulkarticle.stock
+        return len(Equipment.objects.filter(base=self.pk))
+
+
+    @property
+    def getType(self):
+        if hasattr(self, 'bulkarticle'):
+            return "Bulk Article"
+        return "Individual Article"
+
     def __str__(self):
         return self.hardwareClass.__str__() + " : " + self.name
 
 class BulkArticle(Article, HandoverHelper):
     stock = models.IntegerField(default=0)
-
-    @property
-    def getType(self):
-        return "bulkArticle"
 
 #inventar
 class Equipment(models.Model, HandoverHelper):
