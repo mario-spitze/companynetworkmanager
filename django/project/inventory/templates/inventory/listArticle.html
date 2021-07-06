@@ -23,7 +23,12 @@
         </td>
         <td>{{ article.status }}</td>
         <td>{{ article.getCount }}</td>
-        <td><a href="{% url 'inventory:updateBulkArticle' article.pk %}">edit</a></td> 
+        <td>{% if article.getType == "bulkart" %}
+        <a href="{% url 'inventory:updateBulkArticle' article.pk %}">
+        {% else %}
+        <a href="{% url 'inventory:updateArticle' article.pk %}">
+        {% endif %}
+        edit</a></td> 
     </tr>
     {% endfor %}
 </table>

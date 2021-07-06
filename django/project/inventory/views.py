@@ -53,6 +53,12 @@ class BulkArticleUpdateView(generic.UpdateView):
     template_name = 'inventory/updateArticle.html'
     success_url = reverse_lazy('inventory:listArticle')
 
+class ArticleUpdateView(generic.UpdateView):
+    model = Article
+    fields = ['name', 'ean', 'hardwareClass', 'status']
+    template_name = 'inventory/updateArticle.html'
+    success_url = reverse_lazy('inventory:listArticle')
+
 @login_required
 def createArticle(request):
     
