@@ -8,6 +8,7 @@ urlpatterns = [
     path('updateHardwareClass/<int:pk>', views.HardwareClassUpdateView.as_view(), name='updateHardwareClass'),
     path('listHardwareClass/', views.HardwareClassListView.as_view(), name='listHardwareClass'),
     path('createArticle/', views.createArticle, name='createArticle'),
+    path('updateBulkArticle/<int:pk>', views.BulkArticleUpdateView.as_view(), name='updateBulkArticle'),
     path('listArticle/', views.ArticleListView.as_view(), name='listArticle'),
     path('createEquipment/', views.EquipmentCreateView.as_view(), name='createEquipment'),
     path('listEquipment/', views.EquipmentListView.as_view(), name='listEquipment'),

@@ -23,6 +23,7 @@
         </td>
         <td>{{ article.status }}</td>
         <td>{{ article.getCount }}</td>
+        <td><a href="{% url 'inventory:updateBulkArticle' article.pk %}">edit</a></td> 
     </tr>
     {% endfor %}
 </table>
