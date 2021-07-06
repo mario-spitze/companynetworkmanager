@@ -10,11 +10,13 @@ from django.utils.decorators import method_decorator
 from itertools import chain
 from django.urls import reverse_lazy
 
+@method_decorator(login_required, name='dispatch')
 class HardwareClassCreateView(generic.CreateView):
     model = HardwareClass
     fields = ['name']
     success_url = reverse_lazy('inventory:listHardwareClass')
 
+@method_decorator(login_required, name='dispatch')
 class HardwareClassUpdateView(generic.UpdateView):
     model = HardwareClass
     fields = ['name']
@@ -29,7 +31,7 @@ class HardwareClassListView(generic.ListView):
     model = HardwareClass
     template_name = 'inventory/listHardwareClass.html'
 
-
+@method_decorator(login_required, name='dispatch')
 class EquipmentCreateView(generic.CreateView):
     model = Equipment
     fields = ['base', 'sn', 'inventarNr' ]
@@ -47,12 +49,14 @@ class EquipmentDetailsView(generic.DetailView):
     model = Equipment
     template_name = 'inventory/detailEquipment.html'
 
+@method_decorator(login_required, name='dispatch')
 class BulkArticleUpdateView(generic.UpdateView):
     model = BulkArticle
     fields = ['name', 'ean', 'hardwareClass']
     template_name = 'inventory/updateArticle.html'
     success_url = reverse_lazy('inventory:listArticle')
 
+@method_decorator(login_required, name='dispatch')
 class ArticleUpdateView(generic.UpdateView):
     model = Article
     fields = ['name', 'ean', 'hardwareClass', 'status']
