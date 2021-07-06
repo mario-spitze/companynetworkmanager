@@ -1,0 +1,16 @@
+{% extends 'content.html' %}
+
+{% block title %}Hardware Klassen{% endblock %}
+
+{% block content %}
+<table border="2">
+    <tr>
+        <th>Name</th>
+    </tr>
+    {% for hardwareClass in object_list %}
+    <tr>
+        <td>{{ hardwareClass.name}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

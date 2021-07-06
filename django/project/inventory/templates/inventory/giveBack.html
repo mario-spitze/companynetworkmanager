@@ -1,0 +1,15 @@
+<table>
+    <tr>
+        <td>Gegenstand: </td>
+        <td>{{ thing }}</td>
+    </tr>
+    <tr>
+        <td>Nutzer: </td>
+        <td>{{ user }}</td>
+    </tr>
+</table>
+
+    <form method="post">{% csrf_token %}
+	<input class="btn btn-success" type="submit" value="Save" />
+	<a href="{% url 'inventory:detailWorkplace' user.id %}" class="btn btn-secondary">Cancel</a>
+    </form>
