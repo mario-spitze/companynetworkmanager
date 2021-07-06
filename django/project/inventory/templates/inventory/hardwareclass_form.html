@@ -1,10 +1,17 @@
 {% extends 'content.html' %}
 
-{% block title %}Neue Hardwareklasse{% endblock %}
+{% block title %}
+    {%if operation == "update" %}
+        Hardwareklasse ändern
+    {% else %}
+        Neue Hardwareklasse
+    {% endif %}
+{% endblock %}
 
 {% block content %}
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Save">
+	<a href="{{ view.get_success_url }}" class="btn btn-secondary">Cancel</a>
 </form>
 {% endblock %}

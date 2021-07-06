@@ -6,10 +6,12 @@
 <table border="2">
     <tr>
         <th>Name</th>
+        <th></th>
     </tr>
     {% for hardwareClass in object_list %}
     <tr>
         <td>{{ hardwareClass.name}}</td>
+        <td><a href="{% url 'inventory:updateHardwareClass' hardwareClass.pk %}">edit</a></td> 
     </tr>
     {% endfor %}
 </table>

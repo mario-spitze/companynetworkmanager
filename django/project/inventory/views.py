@@ -1,18 +1,12 @@
 from django.shortcuts import render
 
 from django.views import generic
-
 from .models import Article, BulkArticle, Customer, Equipment, Handover, HardwareClass, Workplace
-
 from .forms import ArticleCreateForm, HandoverForm
-
 from django.http import HttpResponse, HttpResponseRedirect
-
 from django.contrib.contenttypes.models import ContentType
-
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-
 from itertools import chain
 from django.urls import reverse_lazy
 
@@ -21,10 +15,20 @@ class HardwareClassCreateView(generic.CreateView):
     fields = ['name']
     success_url = reverse_lazy('inventory:listHardwareClass')
 
+class HardwareClassUpdateView(generic.UpdateView):
+    model = HardwareClass
+    fields = ['name']
+    success_url = reverse_lazy('inventory:listHardwareClass')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['operation'] = "update"
+        return context
+
 @method_decorator(login_required, name='dispatch')
 class HardwareClassListView(generic.ListView):
     model = HardwareClass
     template_name = 'inventory/listHardwareClass.html'
+
 
 class EquipmentCreateView(generic.CreateView):
     model = Equipment

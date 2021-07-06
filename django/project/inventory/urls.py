@@ -5,6 +5,7 @@ from . import views
 app_name = 'inventory'
 urlpatterns = [
     path('createHardwareClass/', views.HardwareClassCreateView.as_view(), name='createHardwareClass'),
+    path('updateHardwareClass/<int:pk>', views.HardwareClassUpdateView.as_view(), name='updateHardwareClass'),
     path('listHardwareClass/', views.HardwareClassListView.as_view(), name='listHardwareClass'),
     path('createArticle/', views.createArticle, name='createArticle'),
     path('listArticle/', views.ArticleListView.as_view(), name='listArticle'),
