@@ -12,6 +12,7 @@ urlpatterns = [
     path('updateArticle/<int:pk>', views.ArticleUpdateView.as_view(), name='updateArticle'),
     path('listArticle/', views.ArticleListView.as_view(), name='listArticle'),
     path('createEquipment/', views.EquipmentCreateView.as_view(), name='createEquipment'),
+    path('updateEquipment/<int:pk>', views.EquipmentUpdateView.as_view(), name='updateEquipment'),
     path('listEquipment/', views.EquipmentListView.as_view(), name='listEquipment'),
     path('detailEquipment/<int:pk>', views.EquipmentDetailsView.as_view(), name='detailEquipment'),
     path('listWorkplace/', views.WorkplaceListView.as_view(), name='listWorkplace'),

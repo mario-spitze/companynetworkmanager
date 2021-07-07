@@ -1,10 +1,17 @@
 {% extends 'content.html' %}
 
-{% block title %}Neues Equipment{% endblock %}
+{% block title %}
+    {%if operation == "update" %}
+        Equipment ändern
+    {% else %}
+        Neues Equipment
+    {% endif %}
+{% endblock %}
 
 {% block content %}
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Save">
+	<a href="{{ view.get_success_url }}" class="btn btn-secondary">Cancel</a>
 </form>
 {% endblock %}

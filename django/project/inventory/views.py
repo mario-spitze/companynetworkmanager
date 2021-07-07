@@ -39,6 +39,17 @@ class EquipmentCreateView(generic.CreateView):
     success_url = reverse_lazy('inventory:listEquipment')
 
 @method_decorator(login_required, name='dispatch')
+class EquipmentUpdateView(generic.UpdateView):
+    model = Equipment
+    fields = ['base', 'sn', 'inventarNr']
+    template_name = 'inventory/createEquipment.html'
+    success_url = reverse_lazy('inventory:listEquipment')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['operation'] = "update"
+        return context
+
+@method_decorator(login_required, name='dispatch')
 class EquipmentListView(generic.ListView):
     def get_queryset(self):
         return list(chain(Equipment.objects.all(), BulkArticle.objects.all()))

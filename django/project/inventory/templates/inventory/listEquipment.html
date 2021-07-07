@@ -15,6 +15,7 @@
         <td>{{ equipment.sn }}{{ equipment.stock }}</td>
         <td>{{ equipment.getLastUser }}</td>
         <td><a href="{% url 'inventory:createHandover' equipment.getType equipment.id %}">Verleihen</a></td>
+        <td><a href="{% url 'inventory:updateEquipment' equipment.id %}">edit</a></td>
     </tr>
     {% endfor %}
 </table>
