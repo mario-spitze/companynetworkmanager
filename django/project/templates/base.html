@@ -21,10 +21,19 @@ body {
   padding-top: 20px;
 }
 
-.sidenav a {
+.sidenav p {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
+  color: #818181;
+  display: block;
+  background-color: #222;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
   color: #818181;
   display: block;
 }
@@ -48,6 +57,7 @@ body {
 <body>
   <div class="sidenav">
   {% if user.is_authenticated %}
+    <p>Inventar</p>
     <a href="{% url 'inventory:createHardwareClass' %}">add hardware class</a>
     <a href="{% url 'inventory:listHardwareClass' %}">list hardware class</a>
     <a href="{% url 'inventory:createArticle' %}">add article</a>
@@ -56,7 +66,13 @@ body {
     <a href="{% url 'inventory:listEquipment' %}">listEquipment</a>
     <a href="{% url 'inventory:listWorkplace' %}">listWorkplace</a>
     <a href="{% url 'inventory:listCustomer' %}">listCustomer</a>
+    <p>System</p>
+    <a href="{% url 'logout' %}">Logout</a>
+  {% else %}
+    <p>System</p>
+    <a href="{% url 'login' %}">Login</a>
   {% endif %}
+
   </div>
   <div class="main">
     {% block content_page %}
