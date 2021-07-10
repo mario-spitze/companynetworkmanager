@@ -14,7 +14,12 @@ from django.urls import reverse_lazy
 class HardwareClassCreateView(generic.CreateView):
     model = HardwareClass
     fields = ['name']
-    success_url = reverse_lazy('inventory:listHardwareClass')
+    def get_success_url(self) -> str:
+        return reverse_lazy('inventory:listHardwareClass')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['operation'] = "create"
+        return context
 
 @method_decorator(login_required, name='dispatch')
 class HardwareClassUpdateView(generic.UpdateView):
@@ -36,7 +41,12 @@ class EquipmentCreateView(generic.CreateView):
     model = Equipment
     fields = ['base', 'sn', 'inventarNr' ]
     template_name = 'inventory/createEquipment.html'
-    success_url = reverse_lazy('inventory:listEquipment')
+    def get_success_url(self) -> str:
+        return reverse_lazy('inventory:listEquipment')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['operation'] = "create"
+        return context
 
 @method_decorator(login_required, name='dispatch')
 class EquipmentUpdateView(generic.UpdateView):
@@ -114,7 +124,6 @@ class WorkplaceListView(generic.ListView):
 @method_decorator(login_required, name='dispatch')
 class WorkplaceDetailsView(generic.DetailView):
     model = Workplace
-
     def get_object(self, queryset=None):
         obj = super(WorkplaceDetailsView, self).get_object(queryset=queryset)
         obj.handovers = Handover.objects.filter(
