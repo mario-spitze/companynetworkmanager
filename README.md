@@ -14,8 +14,8 @@ Manage your IT: take inventory of your devices and mold you network
 ## Steps to install
 * download repository
 * copy default config files and change them
-** chenge secrets in project.env
-** change secret in keyconfig.py
+    *  chenge secrets in project.env
+    * change secret in keyconfig.py
 * `docker-compose build`
 * `docker-compose up -d`
     or without -d for debugging
