@@ -14,7 +14,11 @@ Manage your IT: take inventory of your devices and mold you network
 ## Steps to install
 * download repository
 * copy default config files and change them
+** chenge secrets in project.env
+** change secret in keyconfig.py
 * `docker-compose build`
 * `docker-compose up -d`
     or without -d for debugging
-* create superuser by 'docker exec -it <id> python manage.py createsuperuser'
+* create superuser by 'docker exec -it django python manage.py createsuperuser'
+
+A django secret key generator can be found at https://django-secret-key-generator.netlify.app/ 

@@ -10,4 +10,4 @@ class Database:
 
 
 class Secrets:
-    SECRET_KEY = "k271q4m!&@=60m(_$l_7!xe3r(%n#qigoqo)h9j1s9+2_)$!ct"
+    SECRET_KEY = [:-> Simon says set a key
