@@ -1,5 +1,8 @@
 <!-- templates/base.html -->
 <!DOCTYPE html>
+
+{% load i18n %}
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -11,13 +14,14 @@ body {
 
 .sidenav {
   height: 100%;
-  width: 240px;
+  width: 280px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   background-color: #111;
   overflow-x: hidden;
+  overflow-y: auto;
   padding-top: 20px;
 }
 
@@ -34,16 +38,19 @@ body {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 18px;
+  background-color: #333;
   color: #818181;
   display: block;
+  margin-bottom: 0.1em;
 }
 
 .sidenav a:hover {
+  background-color: #444;
   color: #f1f1f1;
 }
 
 .main {
-  margin-left: 240px; /* Same as the width of the sidenav */
+  margin-left: 280px; /* Same as the width of the sidenav */
   font-size: 20px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
@@ -58,14 +65,14 @@ body {
   <div class="sidenav">
   {% if user.is_authenticated %}
     <p>Inventar</p>
-    <a href="{% url 'inventory:createHardwareClass' %}">add hardware class</a>
-    <a href="{% url 'inventory:listHardwareClass' %}">list hardware class</a>
-    <a href="{% url 'inventory:createArticle' %}">add article</a>
-    <a href="{% url 'inventory:listArticle' %}">listArticle</a>
-    <a href="{% url 'inventory:createEquipment' %}">add equipment</a>
-    <a href="{% url 'inventory:listEquipment' %}">listEquipment</a>
-    <a href="{% url 'inventory:listWorkplace' %}">listWorkplace</a>
-    <a href="{% url 'inventory:listCustomer' %}">listCustomer</a>
+    <a href="{% url 'inventory:createHardwareClass' %}">{% translate 'Add Hardwareclass' %}</a>
+    <a href="{% url 'inventory:listHardwareClass' %}">{% translate 'List Hardwareclasses' %}</a>
+    <a href="{% url 'inventory:createArticle' %}">{% translate 'Add Article' %}</a>
+    <a href="{% url 'inventory:listArticle' %}">{% translate 'List Articles' %}</a>
+    <a href="{% url 'inventory:createEquipment' %}">{% translate 'Add Equipment' %}</a>
+    <a href="{% url 'inventory:listEquipment' %}">{% translate 'List Equipment' %}</a>
+    <a href="{% url 'inventory:listWorkplace' %}">{% translate 'List Workplace' %}</a>
+    <a href="{% url 'inventory:listCustomer' %}">{% translate 'List Customer' %}</a>
     <p>System</p>
     <a href="{% url 'logout' %}">Logout</a>
   {% else %}

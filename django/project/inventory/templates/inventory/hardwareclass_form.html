@@ -1,17 +1,17 @@
 {% extends 'content.html' %}
-
+{% load i18n %}
 {% block title %}
     {%if operation == "update" %}
-        Hardwareklasse ändern
+        {% trans 'Edit Hardwareclass' %}
     {% else %}
-        Neue Hardwareklasse
+        {% trans 'New Hardwareclass' %}
     {% endif %}
 {% endblock %}
 
 {% block content %}
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Save">
-	<a href="{{ view.get_success_url }}" class="btn btn-secondary">Cancel</a>
+    <input type="submit" value="{% trans 'Save' %}">
+	<a href="{{ view.get_success_url }}" class="btn btn-secondary">{% trans 'Cancel' %}</a>
 </form>
 {% endblock %}

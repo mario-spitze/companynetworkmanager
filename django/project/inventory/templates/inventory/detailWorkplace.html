@@ -1,19 +1,20 @@
+{% load i18n %}
 <table border="2">
  <tr><td>ID</td><td>{{ object.id }}</td></tr>
- <tr><td>room</td><td>{{ object.room }}</td></tr>
- <tr><td>place</td><td>{{ object.place }}</td></tr>
+ <tr><td>{% translate 'room' %}</td><td>{{ object.room }}</td></tr>
+ <tr><td>{% translate 'place' %}</td><td>{{ object.place }}</td></tr>
 </table>
 
-Ausstattung:
+{% translate 'Equipment' %}:
 <table border="2">
     <tr>
-        <th>Material</th>
-        <th>Function</th>
+        <th>{% translate 'material' %}</th>
+        <th>{% translate 'action' %}</th>
     </tr>
     {% for handover in object.handovers %}
     <tr>
         <td>{{ handover}}</td>
-        <td><a href="{% url 'inventory:giveBack' handover.id %}">give back</a></td>
+        <td><a href="{% url 'inventory:giveBack' handover.id %}">{% translate 'give back' %}</a></td>
     </tr>
     {% endfor %}
 </table>

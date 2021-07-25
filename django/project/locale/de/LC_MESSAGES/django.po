@@ -1,0 +1,203 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-25 14:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: computer/models.py:36
+msgid "OS"
+msgstr "os"
+
+#: computer/models.py:37
+msgid "normal"
+msgstr "normal"
+
+#: inventory/models.py:27
+msgid "new"
+msgstr "neu"
+
+#: inventory/models.py:28
+msgid "active"
+msgstr "aktiv"
+
+#: inventory/models.py:29
+msgid "old"
+msgstr "alt"
+
+#: inventory/templates/inventory/createArticle.html:3
+#: templates/base.html:70
+msgid "Add Article"
+msgstr "Artikel hinzufügen"
+
+#: inventory/templates/inventory/createArticle.html:12
+#: inventory/templates/inventory/createEquipment.html:14
+#: inventory/templates/inventory/createHandover.html:9
+#: inventory/templates/inventory/giveBack.html:16
+#: inventory/templates/inventory/hardwareclass_form.html:14
+msgid "Save"
+msgstr "Speichern"
+
+#: inventory/templates/inventory/createEquipment.html:5
+msgid "Edit Equipment"
+msgstr "Equipment ändern"
+
+#: inventory/templates/inventory/createEquipment.html:7
+#: templates/base.html:72
+msgid "Add Equipment"
+msgstr "Equipment hinzufügen"
+
+#: inventory/templates/inventory/createEquipment.html:15
+#: inventory/templates/inventory/giveBack.html:17
+#: inventory/templates/inventory/hardwareclass_form.html:15
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: inventory/templates/inventory/createHandover.html:2
+msgid "Create single Handover"
+msgstr "Einfache Ausleihe"
+
+#: inventory/templates/inventory/detailWorkplace.html:4
+#: inventory/templates/inventory/listWorkplace.html:8
+msgid "room"
+msgstr "Raum"
+
+#: inventory/templates/inventory/detailWorkplace.html:5
+#: inventory/templates/inventory/listWorkplace.html:9
+msgid "place"
+msgstr "Ort/Arbeitsplatz"
+
+#: inventory/templates/inventory/detailWorkplace.html:8
+msgid "Equipment"
+msgstr "Ausstattung"
+
+#: inventory/templates/inventory/detailWorkplace.html:11
+#: inventory/templates/inventory/giveBack.html:6
+msgid "material"
+msgstr "Material"
+
+#: inventory/templates/inventory/detailWorkplace.html:12
+#: inventory/templates/inventory/listEquipment.html:11
+#: inventory/templates/inventory/listHardwareClass.html:9
+msgid "action"
+msgstr "Aktionen"
+
+#: inventory/templates/inventory/detailWorkplace.html:17
+msgid "give back"
+msgstr "zurück geben"
+
+#: inventory/templates/inventory/giveBack.html:2
+msgid "Give Back"
+msgstr "Rückgabe"
+
+#: inventory/templates/inventory/giveBack.html:10
+msgid "user"
+msgstr "Nutzer"
+
+#: inventory/templates/inventory/hardwareclass_form.html:5
+msgid "Edit Hardwareclass"
+msgstr "Hardwareklasse ändern"
+
+#: inventory/templates/inventory/hardwareclass_form.html:7
+msgid "New Hardwareclass"
+msgstr "Neue Hardwareklasse"
+
+#: inventory/templates/inventory/listArticle.html:3
+#: templates/base.html:71
+msgid "List Articles"
+msgstr "Liste Artikel"
+
+#: inventory/templates/inventory/listArticle.html:12
+msgid "Count"
+msgstr "Anzahl"
+
+#: inventory/templates/inventory/listArticle.html:19
+msgid "Bulk Article"
+msgstr "Massenartikel"
+
+#: inventory/templates/inventory/listArticle.html:21
+msgid "Individual Article"
+msgstr "Einzelartikel"
+
+#: inventory/templates/inventory/listArticle.html:31
+#: inventory/templates/inventory/listEquipment.html:19
+#: inventory/templates/inventory/listHardwareClass.html:14
+msgid "edit"
+msgstr "ändern"
+
+#: inventory/templates/inventory/listCustomer.html:3
+msgid "List of users"
+msgstr "Benutzerliste"
+
+#: inventory/templates/inventory/listEquipment.html:3
+msgid "List of devices"
+msgstr "Geräteliste"
+
+#: inventory/templates/inventory/listEquipment.html:18
+msgid "handover"
+msgstr "ausleihen"
+
+#: inventory/templates/inventory/listHardwareClass.html:3
+msgid "List of hardwareclases"
+msgstr "Liste der Hardwareklassen"
+
+#: inventory/templates/inventory/listWorkplace.html:3
+msgid "List of workplaces"
+msgstr "Liste der Arbeitsplätze"
+
+#: inventory/templates/inventory/updateArticle.html:3
+msgid "Change articel"
+msgstr "Artikel ändern"
+
+#: networkmap/models.py:40
+msgid "Device"
+msgstr "Gerät"
+
+#: networkmap/models.py:41
+msgid "Tunnel"
+msgstr "Tunnel"
+
+#: networkmap/models.py:59
+msgid "Network"
+msgstr "Netzwerk"
+
+#: networkmap/models.py:60
+msgid "Power"
+msgstr "Power"
+
+#: networkmap/models.py:61
+msgid "Management"
+msgstr "Management"
+
+#: templates/base.html:68
+msgid "Add Hardwareclass"
+msgstr "Hardwareklasse hinzufügen"
+
+#: templates/base.html:69
+msgid "List Hardwareclasses"
+msgstr "Liste Hardwareklassen"
+
+#: templates/base.html:73
+msgid "List Equipment"
+msgstr "Liste Equipment"
+
+#: templates/base.html:74
+msgid "List Workplace"
+msgstr "Liste Arbeitsplätze"
+
+#: templates/base.html:75
+msgid "List Customer"
+msgstr "Liste Benutzer"
