@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-25 14:50+0000\n"
+"POT-Creation-Date: 2021-07-28 19:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,18 @@ msgstr "os"
 msgid "normal"
 msgstr "normal"
 
+#: inventory/forms.py:6
+msgid "to Workplace"
+msgstr "an Arbeitsplatz"
+
+#: inventory/forms.py:7
+msgid "to Person"
+msgstr "an Person"
+
+#: inventory/forms.py:19
+msgid "Category"
+msgstr "Kategorie"
+
 #: inventory/models.py:27
 msgid "new"
 msgstr "neu"
@@ -38,15 +50,22 @@ msgstr "aktiv"
 msgid "old"
 msgstr "alt"
 
-#: inventory/templates/inventory/createArticle.html:3
-#: templates/base.html:70
+#: inventory/models.py:146
+msgid " laid to "
+msgstr " ausgegeben an "
+
+#: inventory/models.py:148
+msgid " laid back from "
+msgstr " zurückerhalten von "
+
+#: inventory/templates/inventory/createArticle.html:3 templates/base.html:70
 msgid "Add Article"
 msgstr "Artikel hinzufügen"
 
 #: inventory/templates/inventory/createArticle.html:12
 #: inventory/templates/inventory/createEquipment.html:14
 #: inventory/templates/inventory/createHandover.html:9
-#: inventory/templates/inventory/giveBack.html:16
+#: inventory/templates/inventory/giveBack.html:15
 #: inventory/templates/inventory/hardwareclass_form.html:14
 msgid "Save"
 msgstr "Speichern"
@@ -55,13 +74,12 @@ msgstr "Speichern"
 msgid "Edit Equipment"
 msgstr "Equipment ändern"
 
-#: inventory/templates/inventory/createEquipment.html:7
-#: templates/base.html:72
+#: inventory/templates/inventory/createEquipment.html:7 templates/base.html:72
 msgid "Add Equipment"
 msgstr "Equipment hinzufügen"
 
 #: inventory/templates/inventory/createEquipment.html:15
-#: inventory/templates/inventory/giveBack.html:17
+#: inventory/templates/inventory/giveBack.html:16
 #: inventory/templates/inventory/hardwareclass_form.html:15
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -85,7 +103,7 @@ msgid "Equipment"
 msgstr "Ausstattung"
 
 #: inventory/templates/inventory/detailWorkplace.html:11
-#: inventory/templates/inventory/giveBack.html:6
+#: inventory/templates/inventory/giveBack.html:5
 msgid "material"
 msgstr "Material"
 
@@ -103,7 +121,7 @@ msgstr "zurück geben"
 msgid "Give Back"
 msgstr "Rückgabe"
 
-#: inventory/templates/inventory/giveBack.html:10
+#: inventory/templates/inventory/giveBack.html:9
 msgid "user"
 msgstr "Nutzer"
 
@@ -115,8 +133,7 @@ msgstr "Hardwareklasse ändern"
 msgid "New Hardwareclass"
 msgstr "Neue Hardwareklasse"
 
-#: inventory/templates/inventory/listArticle.html:3
-#: templates/base.html:71
+#: inventory/templates/inventory/listArticle.html:3 templates/base.html:71
 msgid "List Articles"
 msgstr "Liste Artikel"
 
@@ -145,6 +162,10 @@ msgstr "Benutzerliste"
 #: inventory/templates/inventory/listEquipment.html:3
 msgid "List of devices"
 msgstr "Geräteliste"
+
+#: inventory/templates/inventory/listEquipment.html:9
+msgid "SN or Count"
+msgstr "SN oder Anzahl"
 
 #: inventory/templates/inventory/listEquipment.html:18
 msgid "handover"

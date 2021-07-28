@@ -143,9 +143,9 @@ class Handover(models.Model):
     def __str__(self):
         output = self.thing.__str__()
         if self.movementType == Handover.MovementType.LAY:
-            output = output + " laid to "
+            output = output + _(' laid to ').__str__()
         else:
-            output = output + " laid back from "
+            output = output + _(' laid back from ').__str__()
         output = output + self.user.__str__() + " (" + str(self.pk) + ")"
 
         return output
