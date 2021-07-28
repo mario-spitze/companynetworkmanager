@@ -1,11 +1,15 @@
+{% extends 'content.html' %}
 {% load i18n %}
+{% block title %}{% translate 'Workplace details' %}{% endblock %}
+
+{% block content %}
 <table border="2">
  <tr><td>ID</td><td>{{ object.id }}</td></tr>
  <tr><td>{% translate 'room' %}</td><td>{{ object.room }}</td></tr>
  <tr><td>{% translate 'place' %}</td><td>{{ object.place }}</td></tr>
 </table>
-
-{% translate 'Equipment' %}:
+<br/>
+<b>{% translate 'Equipment' %}:</b>
 <table border="2">
     <tr>
         <th>{% translate 'material' %}</th>
@@ -18,3 +22,4 @@
     </tr>
     {% endfor %}
 </table>
+{% endblock %}

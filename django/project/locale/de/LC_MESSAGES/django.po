@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-28 19:36+0000\n"
+"POT-Creation-Date: 2021-07-28 19:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,8 +64,8 @@ msgstr "Artikel hinzufügen"
 
 #: inventory/templates/inventory/createArticle.html:12
 #: inventory/templates/inventory/createEquipment.html:14
-#: inventory/templates/inventory/createHandover.html:9
-#: inventory/templates/inventory/giveBack.html:15
+#: inventory/templates/inventory/createHandover.html:12
+#: inventory/templates/inventory/giveBack.html:18
 #: inventory/templates/inventory/hardwareclass_form.html:14
 msgid "Save"
 msgstr "Speichern"
@@ -79,49 +79,53 @@ msgid "Add Equipment"
 msgstr "Equipment hinzufügen"
 
 #: inventory/templates/inventory/createEquipment.html:15
-#: inventory/templates/inventory/giveBack.html:16
+#: inventory/templates/inventory/giveBack.html:19
 #: inventory/templates/inventory/hardwareclass_form.html:15
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: inventory/templates/inventory/createHandover.html:2
+#: inventory/templates/inventory/createHandover.html:4
 msgid "Create single Handover"
 msgstr "Einfache Ausleihe"
 
-#: inventory/templates/inventory/detailWorkplace.html:4
+#: inventory/templates/inventory/detailWorkplace.html:3
+msgid "Workplace details"
+msgstr "Details zu Arbeitsplatz"
+
+#: inventory/templates/inventory/detailWorkplace.html:8
 #: inventory/templates/inventory/listWorkplace.html:8
 msgid "room"
 msgstr "Raum"
 
-#: inventory/templates/inventory/detailWorkplace.html:5
+#: inventory/templates/inventory/detailWorkplace.html:9
 #: inventory/templates/inventory/listWorkplace.html:9
 msgid "place"
 msgstr "Ort/Arbeitsplatz"
 
-#: inventory/templates/inventory/detailWorkplace.html:8
+#: inventory/templates/inventory/detailWorkplace.html:12
 msgid "Equipment"
 msgstr "Ausstattung"
 
-#: inventory/templates/inventory/detailWorkplace.html:11
-#: inventory/templates/inventory/giveBack.html:5
+#: inventory/templates/inventory/detailWorkplace.html:15
+#: inventory/templates/inventory/giveBack.html:8
 msgid "material"
 msgstr "Material"
 
-#: inventory/templates/inventory/detailWorkplace.html:12
+#: inventory/templates/inventory/detailWorkplace.html:16
 #: inventory/templates/inventory/listEquipment.html:11
 #: inventory/templates/inventory/listHardwareClass.html:9
 msgid "action"
 msgstr "Aktionen"
 
-#: inventory/templates/inventory/detailWorkplace.html:17
+#: inventory/templates/inventory/detailWorkplace.html:21
 msgid "give back"
 msgstr "zurück geben"
 
-#: inventory/templates/inventory/giveBack.html:2
+#: inventory/templates/inventory/giveBack.html:3
 msgid "Give Back"
 msgstr "Rückgabe"
 
-#: inventory/templates/inventory/giveBack.html:9
+#: inventory/templates/inventory/giveBack.html:12
 msgid "user"
 msgstr "Nutzer"
 

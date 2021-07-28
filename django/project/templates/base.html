@@ -63,6 +63,7 @@ body {
 </head>
 <body>
   <div class="sidenav">
+  {{ user }}
   {% if user.is_authenticated %}
     <p>Inventar</p>
     <a href="{% url 'inventory:createHardwareClass' %}">{% translate 'Add Hardwareclass' %}</a>
