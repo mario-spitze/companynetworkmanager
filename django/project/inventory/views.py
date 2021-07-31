@@ -187,7 +187,7 @@ def giveBack(request, handoverID):
     
     oldHandover = Handover.objects.get(id=handoverID)
 
-    user = oldHandover.getUser()
+    place = oldHandover.getPlace()
     thing = oldHandover.getThing()
 
     if request.method == 'POST':
@@ -199,12 +199,12 @@ def giveBack(request, handoverID):
 
         newHandover.thing_content_type = ContentType.objects.get_for_model(thing)
         newHandover.thing_object_id = thing.id
-        newHandover.user_object_id = user.id
-        newHandover.user_content_type =  ContentType.objects.get_for_model(user)
+        newHandover.user_object_id = place.id
+        newHandover.user_content_type =  ContentType.objects.get_for_model(place)
         newHandover.movementType = Handover.MovementType.LAYBACK
         newHandover.save()
         oldHandover.save()
 
-        return HttpResponseRedirect('/inventory/detailWorkplace/' + str(user.id))
+        return HttpResponseRedirect('/inventory/detailWorkplace/' + str(place.id))
 
-    return render(request, 'inventory/giveBack.html', { 'user':user, 'thing':thing })
+    return render(request, 'inventory/giveBack.html', { 'place':place, 'thing':thing })

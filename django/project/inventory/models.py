@@ -132,13 +132,13 @@ class Handover(models.Model):
             thing = BulkArticle.objects.get(id=self.thing_object_id)
         return thing
 
-    def getUser(self):
-        user = None
+    def getPlace(self):
+        place = None
         if self.user_content_type == ContentType.objects.get_for_model(Workplace):
-            user = Workplace.objects.get(id=self.user_object_id)
+            place = Workplace.objects.get(id=self.user_object_id)
         else:
-            user = Customer.objects.get(id=self.user_object_id)
-        return user
+            place = Customer.objects.get(id=self.user_object_id)
+        return place
 
     def __str__(self):
         output = self.thing.__str__()
