@@ -133,6 +133,11 @@ class WorkplaceDetailsView(generic.DetailView):
             user_content_type=ContentType.objects.get_for_model(obj))
         return obj
     template_name = 'inventory/detailWorkplace.html'
+
+@method_decorator(login_required, name='dispatch')
+class CustomerDetailsView(generic.DetailView):
+    model = Customer
+    template_name = 'inventory/detailCustomer.html'
     
 @method_decorator(login_required, name='dispatch')
 class CustomerListView(generic.ListView):

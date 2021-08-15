@@ -18,6 +18,7 @@ urlpatterns = [
     path('listWorkplace/', views.WorkplaceListView.as_view(), name='listWorkplace'),
     path('detailWorkplace/<int:pk>', views.WorkplaceDetailsView.as_view(), name='detailWorkplace'),
     path('listCustomer/', views.CustomerListView.as_view(), name='listCustomer'),
+    path('detailCustomer/<int:pk>', views.CustomerDetailsView.as_view(), name='detailCustomer'),
     path('giveBack/<int:handoverID>', views.giveBack, name='giveBack'),
 
     path('createHandover/<slug:objType>/<int:pk>/', views.createHandover, name='createHandover'),

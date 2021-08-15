@@ -1,0 +1,10 @@
+{% extends 'content.html' %}
+{% load i18n %}
+{% block title %}{% translate 'Customer details' %}{% endblock %}
+
+{% block content %}
+<table border="2">
+ <tr><td>ID</td><td>{{ object.id }}</td></tr>
+ <tr><td>Name</td><td>{{ object.name }}</td></tr>
+</table>
+{% endblock %}
