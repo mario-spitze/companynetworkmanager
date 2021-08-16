@@ -6,6 +6,7 @@
 <table border="2">
     <tr>
         <th>Name</th>
+        <th>Type</th>
         <th>{% translate 'SN or Count' %}</th>
         <th>Position</th>
         <th colspan="2">{% translate 'action' %}</th>
@@ -13,7 +14,16 @@
     {% for equipment in object_list %}
     <tr>
         <td>{{ equipment}}</td>
-        <td>{{ equipment.sn }}{{ equipment.stock }}</td>
+        <td>{% if equipment.getType == "equipment" %}
+            {% translate 'Bulk Article' %}
+        {% else %}
+            {% translate 'Individual Article' %}
+        {% endif %}</td>
+        <td>{% if equipment.getType == "equipment" %}
+            {{ equipment.sn }}
+        {% else %}
+            {{ equipment.stock }}
+        {% endif %}</td>
         <td>{{ equipment.getLastUser }}</td>
         <td><a href="{% url 'inventory:createHandover' equipment.getType equipment.id %}">{% translate 'handover' %}</a></td>
         <td><a href="{% url 'inventory:updateEquipment' equipment.id %}">{% translate 'edit' %}</a></td>
