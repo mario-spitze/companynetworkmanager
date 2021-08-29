@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 13:35+0000\n"
+"POT-Creation-Date: 2021-08-29 14:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,232 +18,249 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: computer/models.py:36
+#: computer/models.py
 msgid "OS"
 msgstr "os"
 
-#: computer/models.py:37
+#: computer/models.py
 msgid "normal"
 msgstr "normal"
 
-#: inventory/forms.py:6
+#: inventory/forms.py
 msgid "to Workplace"
 msgstr "an Arbeitsplatz"
 
-#: inventory/forms.py:7
+#: inventory/forms.py
 msgid "to Person"
 msgstr "an Person"
 
-#: inventory/forms.py:19
+#: inventory/forms.py
 msgid "Category"
 msgstr "Kategorie"
 
-#: inventory/models.py:27
+#: inventory/models.py
 msgid "new"
 msgstr "neu"
 
-#: inventory/models.py:28
+#: inventory/models.py
 msgid "active"
 msgstr "aktiv"
 
-#: inventory/models.py:29
+#: inventory/models.py
 msgid "old"
 msgstr "alt"
 
-#: inventory/models.py:146
+#: inventory/models.py
 msgid " laid to "
 msgstr " ausgegeben an "
 
-#: inventory/models.py:148
+#: inventory/models.py
 msgid " laid back from "
 msgstr " zurückerhalten von "
 
-#: inventory/templates/inventory/createArticle.html:3 templates/base.html:81
+#: inventory/templates/inventory/createArticle.html templates/base.html
 msgid "Add Article"
 msgstr "Artikel hinzufügen"
 
-#: inventory/templates/inventory/createArticle.html:12
-#: inventory/templates/inventory/createEquipment.html:14
-#: inventory/templates/inventory/createHandover.html:12
-#: inventory/templates/inventory/giveBack.html:18
-#: inventory/templates/inventory/hardwareclass_form.html:14
+#: inventory/templates/inventory/createArticle.html
+#: inventory/templates/inventory/createEquipment.html
+#: inventory/templates/inventory/createHandover.html
+#: inventory/templates/inventory/giveBack.html
+#: inventory/templates/inventory/hardwareclass_form.html
 msgid "Save"
 msgstr "Speichern"
 
-#: inventory/templates/inventory/createEquipment.html:5
+#: inventory/templates/inventory/createEquipment.html
 msgid "Edit Equipment"
 msgstr "Equipment ändern"
 
-#: inventory/templates/inventory/createEquipment.html:7 templates/base.html:83
+#: inventory/templates/inventory/createEquipment.html templates/base.html
 msgid "Add Equipment"
 msgstr "Equipment hinzufügen"
 
-#: inventory/templates/inventory/createEquipment.html:15
-#: inventory/templates/inventory/giveBack.html:19
-#: inventory/templates/inventory/hardwareclass_form.html:15
+#: inventory/templates/inventory/createEquipment.html
+#: inventory/templates/inventory/giveBack.html
+#: inventory/templates/inventory/hardwareclass_form.html
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: inventory/templates/inventory/createHandover.html:4
+#: inventory/templates/inventory/createHandover.html
 msgid "Create single Handover"
 msgstr "Einfache Ausleihe"
 
-#: inventory/templates/inventory/detailCustomer.html:3
+#: inventory/templates/inventory/detailCustomer.html
 msgid "Customer details"
 msgstr "Details zu Mitarbeiter"
 
-#: inventory/templates/inventory/detailWorkplace.html:3
+#: inventory/templates/inventory/detailWorkplace.html
 msgid "Workplace details"
 msgstr "Details zu Arbeitsplatz"
 
-#: inventory/templates/inventory/detailWorkplace.html:8
-#: inventory/templates/inventory/listWorkplace.html:8
+#: inventory/templates/inventory/detailWorkplace.html
+#: inventory/templates/inventory/listWorkplace.html
 msgid "room"
 msgstr "Raum"
 
-#: inventory/templates/inventory/detailWorkplace.html:9
-#: inventory/templates/inventory/giveBack.html:12
-#: inventory/templates/inventory/listWorkplace.html:9
+#: inventory/templates/inventory/detailWorkplace.html
+#: inventory/templates/inventory/giveBack.html
+#: inventory/templates/inventory/listWorkplace.html
 msgid "place"
 msgstr "Ort/Arbeitsplatz"
 
-#: inventory/templates/inventory/detailWorkplace.html:12
+#: inventory/templates/inventory/detailWorkplace.html
+msgid "workplace owner"
+msgstr "Arbeitsplatzinhaber "
+
+#: inventory/templates/inventory/detailWorkplace.html
+msgid "No explicit owner"
+msgstr "Kein expliziter Benutzer"
+
+#: inventory/templates/inventory/detailWorkplace.html
 msgid "Equipment"
 msgstr "Ausstattung"
 
-#: inventory/templates/inventory/detailWorkplace.html:15
-#: inventory/templates/inventory/giveBack.html:8
+#: inventory/templates/inventory/detailWorkplace.html
+#: inventory/templates/inventory/giveBack.html
 msgid "material"
 msgstr "Material"
 
-#: inventory/templates/inventory/detailWorkplace.html:16
-#: inventory/templates/inventory/listCustomer.html:9
-#: inventory/templates/inventory/listEquipment.html:12
-#: inventory/templates/inventory/listHardwareClass.html:9
+#: inventory/templates/inventory/detailWorkplace.html
+#: inventory/templates/inventory/listCustomer.html
+#: inventory/templates/inventory/listEquipment.html
+#: inventory/templates/inventory/listHardwareClass.html
 msgid "action"
 msgstr "Aktionen"
 
-#: inventory/templates/inventory/detailWorkplace.html:21
+#: inventory/templates/inventory/detailWorkplace.html
 msgid "give back"
 msgstr "zurück geben"
 
-#: inventory/templates/inventory/giveBack.html:3
+#: inventory/templates/inventory/giveBack.html
 msgid "Give Back"
 msgstr "Rückgabe"
 
-#: inventory/templates/inventory/hardwareclass_form.html:5
+#: inventory/templates/inventory/hardwareclass_form.html
 msgid "Edit Hardwareclass"
 msgstr "Hardwareklasse ändern"
 
-#: inventory/templates/inventory/hardwareclass_form.html:7
+#: inventory/templates/inventory/hardwareclass_form.html
 msgid "New Hardwareclass"
 msgstr "Neue Hardwareklasse"
 
-#: inventory/templates/inventory/listArticle.html:3 templates/base.html:82
+#: inventory/templates/inventory/listArticle.html templates/base.html
 msgid "List Articles"
 msgstr "Liste Artikel"
 
-#: inventory/templates/inventory/listArticle.html:12
+#: inventory/templates/inventory/listArticle.html
 msgid "Count"
 msgstr "Anzahl"
 
-#: inventory/templates/inventory/listArticle.html:19
-#: inventory/templates/inventory/listEquipment.html:18
+#: inventory/templates/inventory/listArticle.html
+#: inventory/templates/inventory/listEquipment.html
 msgid "Bulk Article"
 msgstr "Massenartikel"
 
-#: inventory/templates/inventory/listArticle.html:21
-#: inventory/templates/inventory/listEquipment.html:20
+#: inventory/templates/inventory/listArticle.html
+#: inventory/templates/inventory/listEquipment.html
 msgid "Individual Article"
 msgstr "Einzelartikel"
 
-#: inventory/templates/inventory/listArticle.html:31
-#: inventory/templates/inventory/listEquipment.html:29
-#: inventory/templates/inventory/listHardwareClass.html:14
+#: inventory/templates/inventory/listArticle.html
+#: inventory/templates/inventory/listEquipment.html
+#: inventory/templates/inventory/listHardwareClass.html
 msgid "edit"
 msgstr "ändern"
 
-#: inventory/templates/inventory/listCustomer.html:3
+#: inventory/templates/inventory/listCustomer.html
 msgid "List of users"
 msgstr "Benutzerliste"
 
-#: inventory/templates/inventory/listEquipment.html:3
+#: inventory/templates/inventory/listEquipment.html
 msgid "List of devices"
 msgstr "Geräteliste"
 
-#: inventory/templates/inventory/listEquipment.html:10
+#: inventory/templates/inventory/listEquipment.html
 msgid "SN or Count"
 msgstr "SN oder Anzahl"
 
-#: inventory/templates/inventory/listEquipment.html:28
+#: inventory/templates/inventory/listEquipment.html
 msgid "handover"
 msgstr "ausleihen"
 
-#: inventory/templates/inventory/listHardwareClass.html:3
+#: inventory/templates/inventory/listHardwareClass.html
 msgid "List of hardwareclases"
 msgstr "Liste der Hardwareklassen"
 
-#: inventory/templates/inventory/listWorkplace.html:3
+#: inventory/templates/inventory/listWorkplace.html
 msgid "List of workplaces"
 msgstr "Liste der Arbeitsplätze"
 
-#: inventory/templates/inventory/updateArticle.html:3
+#: inventory/templates/inventory/listWorkplace.html
+msgid "owner"
+msgstr "Benutzer"
+
+#: inventory/templates/inventory/listWorkplace.html
+msgid "not assigned"
+msgstr "nicht zugeordnet"
+
+#: inventory/templates/inventory/updateArticle.html
 msgid "Change articel"
 msgstr "Artikel ändern"
 
-#: networkmap/models.py:40
+#: networkmap/models.py
 msgid "Device"
 msgstr "Gerät"
 
-#: networkmap/models.py:41
+#: networkmap/models.py
 msgid "Tunnel"
 msgstr "Tunnel"
 
-#: networkmap/models.py:59
+#: networkmap/models.py
 msgid "Network"
 msgstr "Netzwerk"
 
-#: networkmap/models.py:60
+#: networkmap/models.py
 msgid "Power"
 msgstr "Power"
 
-#: networkmap/models.py:61
+#: networkmap/models.py
 msgid "Management"
 msgstr "Management"
 
-#: templates/base.html:77
+#: templates/base.html
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: templates/base.html:79
+#: templates/base.html
 msgid "Add Hardwareclass"
 msgstr "Hardwareklasse hinzufügen"
 
-#: templates/base.html:80
+#: templates/base.html
 msgid "List Hardwareclasses"
 msgstr "Liste Hardwareklassen"
 
-#: templates/base.html:84
+#: templates/base.html
 msgid "List Equipment"
 msgstr "Liste Equipment"
 
-#: templates/base.html:85
+#: templates/base.html
 msgid "List Workplace"
 msgstr "Liste Arbeitsplätze"
 
-#: templates/base.html:86
+#: templates/base.html
 msgid "List Customer"
 msgstr "Liste Benutzer"
 
-#: templates/home.html:10
+#: templates/home.html
 msgid "You are on the main page. Feel free to get your things done!"
-msgstr "Sie sind auf der Startseite. Fühlen Sie sich frei, Ihre Dinge zu erledigen!"
+msgstr ""
+"Sie sind auf der Startseite. Fühlen Sie sich frei, Ihre Dinge zu erledigen!"
 
-#: templates/home.html:12
+#: templates/home.html
 msgid "You are on the main page. Please login!"
 msgstr "Sie sind auf der Startseite. Bitte loggen Sie sich ein!"
 
-#: templates/registration/login.html:7
+#: templates/registration/login.html
 msgid "Login"
 msgstr "Anmeldung"
 

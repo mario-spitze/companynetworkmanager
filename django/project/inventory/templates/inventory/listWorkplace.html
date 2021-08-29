@@ -7,12 +7,14 @@
     <tr>
         <th>{% translate 'room' %}</th>
         <th>{% translate 'place' %}</th>
+        <th>{% translate 'owner' %}
         <th>Details</th>
     </tr>
     {% for workplace in object_list %}
     <tr>
         <td>{{ workplace.room}}</td>
         <td>{{ workplace.place }}</td>
+        <td>{% trans "not assigned" as default_customer %} {{ workplace.customer|default:default_customer }}</td>
         <td><a href="{% url 'inventory:detailWorkplace' workplace.id %}">details</a></td>
     </tr>
     {% endfor %}

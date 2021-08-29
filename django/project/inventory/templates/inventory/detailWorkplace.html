@@ -7,6 +7,9 @@
  <tr><td>ID</td><td>{{ object.id }}</td></tr>
  <tr><td>{% translate 'room' %}</td><td>{{ object.room }}</td></tr>
  <tr><td>{% translate 'place' %}</td><td>{{ object.place }}</td></tr>
+ <tr><td>{% translate 'workplace owner' %}</td>
+    <td>{% trans "No explicit owner" as default_customer %} {{ object.customer|default:default_customer }}</td></tr>
+ 
 </table>
 <br/>
 <b>{% translate 'Equipment' %}:</b>
