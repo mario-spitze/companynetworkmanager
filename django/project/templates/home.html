@@ -1,8 +1,15 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}Home{% endblock %}
 
 {% block content_page %}
-Startseite
+<h1>
+{% if user.is_authenticated %}
+{% translate 'You are on the main page. Feel free to get your things done!' %}
+{% else %}
+{% translate 'You are on the main page. Please login!' %}
+{% endif %}
+</h1>
 {% endblock %}

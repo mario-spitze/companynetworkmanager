@@ -28,7 +28,16 @@ body {
 .sidenav p {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+  background-color: #222;
+}
+
+.sidenav h1 {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 24px;
   color: #818181;
   display: block;
   background-color: #222;
@@ -63,9 +72,10 @@ body {
 </head>
 <body>
   <div class="sidenav">
-  {{ user }}
   {% if user.is_authenticated %}
-    <p>Inventar</p>
+
+    <p>{% translate 'Welcome' %} {{ user }}</p>
+    <h1>Inventar</h1>
     <a href="{% url 'inventory:createHardwareClass' %}">{% translate 'Add Hardwareclass' %}</a>
     <a href="{% url 'inventory:listHardwareClass' %}">{% translate 'List Hardwareclasses' %}</a>
     <a href="{% url 'inventory:createArticle' %}">{% translate 'Add Article' %}</a>
@@ -74,10 +84,10 @@ body {
     <a href="{% url 'inventory:listEquipment' %}">{% translate 'List Equipment' %}</a>
     <a href="{% url 'inventory:listWorkplace' %}">{% translate 'List Workplace' %}</a>
     <a href="{% url 'inventory:listCustomer' %}">{% translate 'List Customer' %}</a>
-    <p>System</p>
+    <h1>System</h1>
     <a href="{% url 'logout' %}">Logout</a>
   {% else %}
-    <p>System</p>
+    <h1>System</h1>
     <a href="{% url 'login' %}">Login</a>
   {% endif %}
 

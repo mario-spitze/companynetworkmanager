@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-28 19:43+0000\n"
+"POT-Creation-Date: 2021-08-29 13:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,7 +58,7 @@ msgstr " ausgegeben an "
 msgid " laid back from "
 msgstr " zurückerhalten von "
 
-#: inventory/templates/inventory/createArticle.html:3 templates/base.html:70
+#: inventory/templates/inventory/createArticle.html:3 templates/base.html:81
 msgid "Add Article"
 msgstr "Artikel hinzufügen"
 
@@ -74,7 +74,7 @@ msgstr "Speichern"
 msgid "Edit Equipment"
 msgstr "Equipment ändern"
 
-#: inventory/templates/inventory/createEquipment.html:7 templates/base.html:72
+#: inventory/templates/inventory/createEquipment.html:7 templates/base.html:83
 msgid "Add Equipment"
 msgstr "Equipment hinzufügen"
 
@@ -88,6 +88,10 @@ msgstr "Abbrechen"
 msgid "Create single Handover"
 msgstr "Einfache Ausleihe"
 
+#: inventory/templates/inventory/detailCustomer.html:3
+msgid "Customer details"
+msgstr "Details zu Mitarbeiter"
+
 #: inventory/templates/inventory/detailWorkplace.html:3
 msgid "Workplace details"
 msgstr "Details zu Arbeitsplatz"
@@ -98,6 +102,7 @@ msgid "room"
 msgstr "Raum"
 
 #: inventory/templates/inventory/detailWorkplace.html:9
+#: inventory/templates/inventory/giveBack.html:12
 #: inventory/templates/inventory/listWorkplace.html:9
 msgid "place"
 msgstr "Ort/Arbeitsplatz"
@@ -112,7 +117,8 @@ msgid "material"
 msgstr "Material"
 
 #: inventory/templates/inventory/detailWorkplace.html:16
-#: inventory/templates/inventory/listEquipment.html:11
+#: inventory/templates/inventory/listCustomer.html:9
+#: inventory/templates/inventory/listEquipment.html:12
 #: inventory/templates/inventory/listHardwareClass.html:9
 msgid "action"
 msgstr "Aktionen"
@@ -125,10 +131,6 @@ msgstr "zurück geben"
 msgid "Give Back"
 msgstr "Rückgabe"
 
-#: inventory/templates/inventory/giveBack.html:12
-msgid "user"
-msgstr "Nutzer"
-
 #: inventory/templates/inventory/hardwareclass_form.html:5
 msgid "Edit Hardwareclass"
 msgstr "Hardwareklasse ändern"
@@ -137,7 +139,7 @@ msgstr "Hardwareklasse ändern"
 msgid "New Hardwareclass"
 msgstr "Neue Hardwareklasse"
 
-#: inventory/templates/inventory/listArticle.html:3 templates/base.html:71
+#: inventory/templates/inventory/listArticle.html:3 templates/base.html:82
 msgid "List Articles"
 msgstr "Liste Artikel"
 
@@ -146,15 +148,17 @@ msgid "Count"
 msgstr "Anzahl"
 
 #: inventory/templates/inventory/listArticle.html:19
+#: inventory/templates/inventory/listEquipment.html:18
 msgid "Bulk Article"
 msgstr "Massenartikel"
 
 #: inventory/templates/inventory/listArticle.html:21
+#: inventory/templates/inventory/listEquipment.html:20
 msgid "Individual Article"
 msgstr "Einzelartikel"
 
 #: inventory/templates/inventory/listArticle.html:31
-#: inventory/templates/inventory/listEquipment.html:19
+#: inventory/templates/inventory/listEquipment.html:29
 #: inventory/templates/inventory/listHardwareClass.html:14
 msgid "edit"
 msgstr "ändern"
@@ -167,11 +171,11 @@ msgstr "Benutzerliste"
 msgid "List of devices"
 msgstr "Geräteliste"
 
-#: inventory/templates/inventory/listEquipment.html:9
+#: inventory/templates/inventory/listEquipment.html:10
 msgid "SN or Count"
 msgstr "SN oder Anzahl"
 
-#: inventory/templates/inventory/listEquipment.html:18
+#: inventory/templates/inventory/listEquipment.html:28
 msgid "handover"
 msgstr "ausleihen"
 
@@ -207,22 +211,41 @@ msgstr "Power"
 msgid "Management"
 msgstr "Management"
 
-#: templates/base.html:68
+#: templates/base.html:77
+msgid "Welcome"
+msgstr "Willkommen"
+
+#: templates/base.html:79
 msgid "Add Hardwareclass"
 msgstr "Hardwareklasse hinzufügen"
 
-#: templates/base.html:69
+#: templates/base.html:80
 msgid "List Hardwareclasses"
 msgstr "Liste Hardwareklassen"
 
-#: templates/base.html:73
+#: templates/base.html:84
 msgid "List Equipment"
 msgstr "Liste Equipment"
 
-#: templates/base.html:74
+#: templates/base.html:85
 msgid "List Workplace"
 msgstr "Liste Arbeitsplätze"
 
-#: templates/base.html:75
+#: templates/base.html:86
 msgid "List Customer"
 msgstr "Liste Benutzer"
+
+#: templates/home.html:10
+msgid "You are on the main page. Feel free to get your things done!"
+msgstr "Sie sind auf der Startseite. Fühlen Sie sich frei, Ihre Dinge zu erledigen!"
+
+#: templates/home.html:12
+msgid "You are on the main page. Please login!"
+msgstr "Sie sind auf der Startseite. Bitte loggen Sie sich ein!"
+
+#: templates/registration/login.html:7
+msgid "Login"
+msgstr "Anmeldung"
+
+#~ msgid "user"
+#~ msgstr "Nutzer"
