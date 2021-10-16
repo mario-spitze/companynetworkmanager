@@ -103,7 +103,7 @@ def createArticle(request):
 
             newArticle.save()
 
-            return HttpResponseRedirect('/inventory/listEquipment/')
+            return HttpResponseRedirect('/inventory/listArticle/')
 
     else:
         form = ArticleCreateForm()
