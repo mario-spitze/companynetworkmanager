@@ -57,7 +57,7 @@ class BulkArticle(Article, HandoverHelper):
 class Equipment(models.Model, HandoverHelper):
     base = models.ForeignKey('Article',
         on_delete=models.CASCADE)
-    sn = models.CharField(max_length=20, blank=True, null=True)
+    sn = models.CharField(max_length=30, blank=True, null=True)
     inventarNr = models.CharField(max_length=14, blank=True, null=True)
 
     def __str__(self):
