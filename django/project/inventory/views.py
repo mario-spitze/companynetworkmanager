@@ -73,7 +73,7 @@ class EquipmentDetailsView(generic.DetailView):
 @method_decorator(login_required, name='dispatch')
 class BulkArticleUpdateView(generic.UpdateView):
     model = BulkArticle
-    fields = ['name', 'ean', 'hardwareClass']
+    fields = ['name', 'ean', 'hardwareClass', 'status']
     template_name = 'inventory/updateArticle.html'
     success_url = reverse_lazy('inventory:listArticle')
 
