@@ -15,7 +15,7 @@
 </table>
 
 <form method="post">{% csrf_token %}
-	<input class="btn btn-success" type="submit" value="{% trans 'Save' %}" />
-	<a href="{% url 'inventory:detailWorkplace' user.id %}" class="btn btn-secondary">{% trans 'Cancel' %}</a>
+	<input class="button" type="submit" value="{% trans 'Save' %}" />
+	<a href="{% url 'inventory:detailWorkplace' user.id %}" class="button button-cancel">{% trans 'Cancel' %}</a>
 </form>
 {% endblock %}
