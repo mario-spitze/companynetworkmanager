@@ -3,7 +3,7 @@
 {% block title %}{% translate 'Give Back' %}{% endblock %}
 
 {% block content %}
-<table>
+<table border="2">
     <tr>
         <td>{% translate 'material' %}</td>
         <td>{{ thing }}</td>
@@ -13,7 +13,7 @@
         <td>{{ place }}</td>
     </tr>
 </table>
-
+<br />
 <form method="post">{% csrf_token %}
 	<input class="button" type="submit" value="{% trans 'Save' %}" />
 	<a href="{% url 'inventory:detailWorkplace' user.id %}" class="button button-cancel">{% trans 'Cancel' %}</a>

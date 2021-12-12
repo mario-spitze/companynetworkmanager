@@ -137,6 +137,14 @@ class WorkplaceDetailsView(generic.DetailView):
 @method_decorator(login_required, name='dispatch')
 class CustomerDetailsView(generic.DetailView):
     model = Customer
+    def get_object(self, queryset=None):
+        obj = super(CustomerDetailsView, self).get_object(queryset=queryset)
+        obj.handovers = Handover.objects.filter(
+            movementType=Handover.MovementType.LAY,
+            oppositeHandover=None,
+            user_object_id=obj.pk, 
+            user_content_type=ContentType.objects.get_for_model(obj))
+        return obj
     template_name = 'inventory/detailCustomer.html'
     
 @method_decorator(login_required, name='dispatch')
@@ -209,7 +217,8 @@ def giveBack(request, handoverID):
         newHandover.movementType = Handover.MovementType.LAYBACK
         newHandover.save()
         oldHandover.save()
-
+        if newHandover.user_content_type == ContentType.objects.get_for_model(Customer):
+            return HttpResponseRedirect('/inventory/detailCustomer/' + str(place.id))
         return HttpResponseRedirect('/inventory/detailWorkplace/' + str(place.id))
 
     return render(request, 'inventory/giveBack.html', { 'place':place, 'thing':thing })

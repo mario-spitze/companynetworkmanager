@@ -7,4 +7,18 @@
  <tr><td>ID</td><td>{{ object.id }}</td></tr>
  <tr><td>Name</td><td>{{ object.name }}</td></tr>
 </table>
+<br/>
+<b>{% translate 'Equipment' %}:</b>
+<table border="2">
+    <tr>
+        <th>{% translate 'material' %}</th>
+        <th>{% translate 'action' %}</th>
+    </tr>
+    {% for handover in object.handovers %}
+    <tr>
+        <td>{{ handover}}</td>
+        <td><a href="{% url 'inventory:giveBack' handover.id %}">{% translate 'give back' %}</a></td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock %}
