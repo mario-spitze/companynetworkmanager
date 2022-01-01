@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from itertools import chain
 from django.urls import reverse_lazy
+from queryset_sequence import QuerySetSequence
 
 @method_decorator(login_required, name='dispatch')
 class HardwareClassCreateView(generic.CreateView):
@@ -62,7 +63,31 @@ class EquipmentUpdateView(generic.UpdateView):
 @method_decorator(login_required, name='dispatch')
 class EquipmentListView(generic.ListView):
     def get_queryset(self):
-        return list(chain(Equipment.objects.all(), BulkArticle.objects.all()))
+#        result = list(chain(Equipment.objects.all(), BulkArticle.objects.all()))
+        data = QuerySetSequence(Equipment.objects.all(), BulkArticle.objects.all())
+        result = None
+        order_text = self.request.GET.get('order')
+        if order_text == 'name':
+            result = sorted(
+                data,
+                key=lambda i: (
+                    i.base.name if i.getType == "equipment" else i.name
+                )
+            )     
+        elif order_text == 'sn':
+            result = sorted(
+                data,
+                key=lambda i: (getattr(i, 'i.sn', 0))
+            )
+        elif order_text == 'class':
+            result = sorted(
+                data,
+                key=lambda i: (
+                    i.base.hardwareClass.__str__() if i.getType == "equipment" else i.hardwareClass.__str__())
+            )
+        else:
+            result = data
+        return result
     template_name = 'inventory/listEquipment.html'
 
 @method_decorator(login_required, name='dispatch')
@@ -113,6 +138,17 @@ def createArticle(request):
 @method_decorator(login_required, name='dispatch')
 class ArticleListView(generic.ListView):
     def get_queryset(self):
+        order_text = self.request.GET.get('order')
+        if order_text == 'name':
+            return Article.objects.all().order_by('name')
+        elif order_text == 'ean':
+            return Article.objects.all().order_by('ean')
+        elif order_text == 'type':
+            return Article.objects.all().order_by('bulkarticle')
+        elif order_text == 'status':
+            return Article.objects.all().order_by('status')
+        elif order_text == 'class':
+            return Article.objects.all().order_by('hardwareClass')
         return Article.objects.all()
     template_name = 'inventory/listArticle.html'  
 

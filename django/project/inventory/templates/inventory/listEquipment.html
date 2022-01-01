@@ -5,15 +5,26 @@
 {% block content %}
 <table border="2">
     <tr>
-        <th>Name</th>
+        <th><a href="{% url 'inventory:listEquipment' %}?order=class">Klasse</a></th>
+        <th><a href="{% url 'inventory:listEquipment' %}?order=name">Name</a></th>
         <th>Type</th>
-        <th>{% translate 'SN or Count' %}</th>
+        <th><a href="{% url 'inventory:listEquipment' %}?order=sn">{% translate 'SN or Count' %}</a></th>
         <th>Position</th>
         <th colspan="2">{% translate 'action' %}</th>
     </tr>
     {% for equipment in object_list %}
     <tr>
-        <td>{{ equipment}}</td>
+        <td>{% if equipment.getType == "equipment" %}
+            {{ equipment.base.hardwareClass }}
+        {% else %}
+            {{ equipment.hardwareClass }}
+        {% endif %}</td>
+        
+        <td>{% if equipment.getType == "equipment" %}
+            {{ equipment.base.name }}
+        {% else %}
+            {{ equipment.name }}
+        {% endif %}</td>
         <td>{% if equipment.getType == "equipment" %}
             {% translate 'Bulk Article' %}
         {% else %}

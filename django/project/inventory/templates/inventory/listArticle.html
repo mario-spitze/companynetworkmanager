@@ -5,15 +5,17 @@
 {% block content %}
 <table border="2">
     <tr>
-        <th>Name</th>
-        <th>EAN</th>
-        <th>Typ</th>
-        <th>Status</th>
+        <th><a href="{% url 'inventory:listArticle' %}?order=class">Klasse</a></th>
+        <th><a href="{% url 'inventory:listArticle' %}?order=name">Name</a></th>
+        <th><a href="{% url 'inventory:listArticle' %}?order=ean">EAN</a></th>
+        <th><a href="{% url 'inventory:listArticle' %}?order=type">Typ</a></th>
+        <th><a href="{% url 'inventory:listArticle' %}?order=status">Status</a></th>
         <th>{% translate 'Count' %}</th>
     </tr>
     {% for article in object_list %}
     <tr>
-        <td>{{ article}}</td>
+        <td>{{ article.hardwareClass}}</td>
+        <td>{{ article.name}}</td>
         <td>{{ article.ean }}</td>
         <td>{% if article.getType == "bulkart" %}
         {% translate 'Bulk Article' %}
