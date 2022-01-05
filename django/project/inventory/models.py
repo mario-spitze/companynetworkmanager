@@ -17,7 +17,7 @@ class HandoverHelper():
 
 #catalog
 class Article(models.Model):
-    ean = models.IntegerField(blank=True, null=True)
+    ean = models.BigIntegerField(blank=True, null=True)
     name = models.CharField(max_length=26)
     description = models.TextField(blank=True, null=True)
     hardwareClass = models.ForeignKey('HardwareClass',
