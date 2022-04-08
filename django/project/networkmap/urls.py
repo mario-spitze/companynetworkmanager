@@ -1,5 +1,4 @@
-from django.conf.urls import url, include
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 app_name = 'networkmap'
@@ -9,5 +8,4 @@ urlpatterns = [
     path('editDevice/<int:id>', views.editDevice, name='editDevice'),
     path('deviceList/', views.DeviceListView.as_view(), name='listDevices'),
     path('deviceNextHop/', views.DeviceListView.as_view()),
-#    url('listDevices/', views., name='addDevice'),
 ]
