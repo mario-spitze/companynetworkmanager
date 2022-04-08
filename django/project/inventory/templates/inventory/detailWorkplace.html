@@ -25,4 +25,22 @@
     </tr>
     {% endfor %}
 </table>
+
+{% if object.customer %}
+    Ausgeliehen an den Anwender des Arbeitsplatzes:
+    <table border="2">
+        <tr>
+            <th>{% translate 'material' %}</th>
+            <th>{% translate 'action' %}</th>
+        </tr>
+        {% for handover in object.customerHandovers %}
+        <tr>
+            <td>{{ handover}}</td>
+            <td><a href="{% url 'inventory:giveBack' handover.id %}">{% translate 'give back' %}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+{% endif %}
 {% endblock %}

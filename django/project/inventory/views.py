@@ -167,6 +167,12 @@ class WorkplaceDetailsView(generic.DetailView):
             oppositeHandover=None,
             user_object_id=obj.pk, 
             user_content_type=ContentType.objects.get_for_model(obj))
+        if obj.customer:
+            obj.customerHandovers = Handover.objects.filter(
+                movementType=Handover.MovementType.LAY,
+                oppositeHandover=None,
+                user_object_id=obj.customer.pk, 
+                user_content_type=ContentType.objects.get_for_model(obj.customer))
         return obj
     template_name = 'inventory/detailWorkplace.html'
 
