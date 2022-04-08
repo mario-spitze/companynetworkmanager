@@ -79,7 +79,7 @@ class Workplace(models.Model):
     room = models.CharField(max_length=10)
     place = models.CharField(max_length=5)
     customer = models.ForeignKey('Customer',
-        models.SET_NULL, null = True)
+        models.SET_NULL, null = True, blank=True)
     comment = models.TextField(blank=True, null=True)
     def __str__(self):
         return self.room + " - " + self.place
