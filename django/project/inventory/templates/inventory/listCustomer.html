@@ -6,12 +6,13 @@
 <table border="2">
     <tr>
         <th>Name</th>
-        <th>{% translate 'action' %}</th>
+        <th colspan="2">{% translate 'action' %}</th>
     </tr>
     {% for customer in object_list %}
     <tr>
         <td>{{ customer.name}}</td>
         <td><a href="{% url 'inventory:detailCustomer' customer.id %}">details</a></td>
+        <td><a href="{% url 'inventory:updateCustomer' customer.id %}">{% translate 'edit' %}</a></td>
     </tr>
     {% endfor %}
 </table>

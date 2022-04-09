@@ -177,6 +177,29 @@ class WorkplaceDetailsView(generic.DetailView):
     template_name = 'inventory/detailWorkplace.html'
 
 @method_decorator(login_required, name='dispatch')
+class CustomerCreateView(generic.CreateView):
+    model = Customer
+    fields = ['name' ]
+    template_name = 'inventory/createCustomer.html'
+    def get_success_url(self) -> str:
+        return reverse_lazy('inventory:listCustomer')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['operation'] = "create"
+        return context
+
+@method_decorator(login_required, name='dispatch')
+class CustomerUpdateView(generic.UpdateView):
+    model = Customer
+    fields = ['name']
+    template_name = 'inventory/createCustomer.html'
+    success_url = reverse_lazy('inventory:listCustomer')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['operation'] = "update"
+        return context
+
+@method_decorator(login_required, name='dispatch')
 class CustomerDetailsView(generic.DetailView):
     model = Customer
     def get_object(self, queryset=None):
