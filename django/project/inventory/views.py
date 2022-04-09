@@ -153,6 +153,29 @@ class ArticleListView(generic.ListView):
     template_name = 'inventory/listArticle.html'  
 
 @method_decorator(login_required, name='dispatch')
+class WorkplaceCreateView(generic.CreateView):
+    model = Workplace
+    fields = ['room', 'place', 'customer', 'comment']
+    template_name = 'inventory/createWorkplace.html'
+    def get_success_url(self) -> str:
+        return reverse_lazy('inventory:listWorkplace')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['operation'] = "create"
+        return context
+
+@method_decorator(login_required, name='dispatch')
+class WorkplaceUpdateView(generic.UpdateView):
+    model = Workplace
+    fields = ['room', 'place', 'customer', 'comment']
+    template_name = 'inventory/createWorkplace.html'
+    success_url = reverse_lazy('inventory:listWorkplace')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['operation'] = "update"
+        return context
+
+@method_decorator(login_required, name='dispatch')
 class WorkplaceListView(generic.ListView):
     model = Workplace
     template_name = 'inventory/listWorkplace.html'

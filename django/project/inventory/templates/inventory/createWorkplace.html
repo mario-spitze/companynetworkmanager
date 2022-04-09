@@ -1,0 +1,17 @@
+{% extends 'content.html' %}
+{% load i18n %}
+{% block title %}
+    {%if operation == "update" %}
+        {% trans 'Edit Workplace' %}
+    {% else %}
+        {% trans 'Add Workplace' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="button" value="{% trans 'Save' %}">
+	<a href="{% url 'inventory:listWorkplace' %}" class="button button-cancel">{% trans 'Cancel' %}</a>
+</form>
+{% endblock %}
