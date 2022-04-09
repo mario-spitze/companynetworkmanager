@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 14:30+0000\n"
+"POT-Creation-Date: 2022-04-09 19:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,12 +63,33 @@ msgid "Add Article"
 msgstr "Artikel hinzufügen"
 
 #: inventory/templates/inventory/createArticle.html
+#: inventory/templates/inventory/createCustomer.html
 #: inventory/templates/inventory/createEquipment.html
 #: inventory/templates/inventory/createHandover.html
+#: inventory/templates/inventory/createWorkplace.html
 #: inventory/templates/inventory/giveBack.html
 #: inventory/templates/inventory/hardwareclass_form.html
 msgid "Save"
 msgstr "Speichern"
+
+#: inventory/templates/inventory/createArticle.html
+#: inventory/templates/inventory/createCustomer.html
+#: inventory/templates/inventory/createEquipment.html
+#: inventory/templates/inventory/createHandover.html
+#: inventory/templates/inventory/createWorkplace.html
+#: inventory/templates/inventory/giveBack.html
+#: inventory/templates/inventory/hardwareclass_form.html
+#: inventory/templates/inventory/updateArticle.html
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: inventory/templates/inventory/createCustomer.html
+msgid "Edit Customer"
+msgstr "Benutzer ändern"
+
+#: inventory/templates/inventory/createCustomer.html templates/base.html
+msgid "Add Customer"
+msgstr "Benutzer hinzufügen"
 
 #: inventory/templates/inventory/createEquipment.html
 msgid "Edit Equipment"
@@ -78,19 +99,46 @@ msgstr "Equipment ändern"
 msgid "Add Equipment"
 msgstr "Equipment hinzufügen"
 
-#: inventory/templates/inventory/createEquipment.html
-#: inventory/templates/inventory/giveBack.html
-#: inventory/templates/inventory/hardwareclass_form.html
-msgid "Cancel"
-msgstr "Abbrechen"
-
 #: inventory/templates/inventory/createHandover.html
 msgid "Create single Handover"
 msgstr "Einfache Ausleihe"
 
+#: inventory/templates/inventory/createWorkplace.html
+msgid "Edit Workplace"
+msgstr "Arbeitsplatz ändern"
+
+#: inventory/templates/inventory/createWorkplace.html templates/base.html
+msgid "Add Workplace"
+msgstr "Arbeitsplatz hinzufügen"
+
 #: inventory/templates/inventory/detailCustomer.html
 msgid "Customer details"
 msgstr "Details zu Mitarbeiter"
+
+#: inventory/templates/inventory/detailCustomer.html
+#: inventory/templates/inventory/detailWorkplace.html
+msgid "Equipment"
+msgstr "Ausstattung"
+
+#: inventory/templates/inventory/detailCustomer.html
+#: inventory/templates/inventory/detailWorkplace.html
+#: inventory/templates/inventory/giveBack.html
+msgid "material"
+msgstr "Material"
+
+#: inventory/templates/inventory/detailCustomer.html
+#: inventory/templates/inventory/detailWorkplace.html
+#: inventory/templates/inventory/listCustomer.html
+#: inventory/templates/inventory/listEquipment.html
+#: inventory/templates/inventory/listHardwareClass.html
+#: inventory/templates/inventory/listWorkplace.html
+msgid "action"
+msgstr "Aktionen"
+
+#: inventory/templates/inventory/detailCustomer.html
+#: inventory/templates/inventory/detailWorkplace.html
+msgid "give back"
+msgstr "zurück geben"
 
 #: inventory/templates/inventory/detailWorkplace.html
 msgid "Workplace details"
@@ -114,26 +162,6 @@ msgstr "Arbeitsplatzinhaber "
 #: inventory/templates/inventory/detailWorkplace.html
 msgid "No explicit owner"
 msgstr "Kein expliziter Benutzer"
-
-#: inventory/templates/inventory/detailWorkplace.html
-msgid "Equipment"
-msgstr "Ausstattung"
-
-#: inventory/templates/inventory/detailWorkplace.html
-#: inventory/templates/inventory/giveBack.html
-msgid "material"
-msgstr "Material"
-
-#: inventory/templates/inventory/detailWorkplace.html
-#: inventory/templates/inventory/listCustomer.html
-#: inventory/templates/inventory/listEquipment.html
-#: inventory/templates/inventory/listHardwareClass.html
-msgid "action"
-msgstr "Aktionen"
-
-#: inventory/templates/inventory/detailWorkplace.html
-msgid "give back"
-msgstr "zurück geben"
 
 #: inventory/templates/inventory/giveBack.html
 msgid "Give Back"
@@ -166,8 +194,10 @@ msgid "Individual Article"
 msgstr "Einzelartikel"
 
 #: inventory/templates/inventory/listArticle.html
+#: inventory/templates/inventory/listCustomer.html
 #: inventory/templates/inventory/listEquipment.html
 #: inventory/templates/inventory/listHardwareClass.html
+#: inventory/templates/inventory/listWorkplace.html
 msgid "edit"
 msgstr "ändern"
 
