@@ -16,6 +16,11 @@
 <br />
 <form method="post">{% csrf_token %}
 	<input class="button" type="submit" value="{% trans 'Save' %}" />
-	<a href="{% url 'inventory:detailWorkplace' user.id %}" class="button button-cancel">{% trans 'Cancel' %}</a>
+	<a href="{% if placeType == "customer" %}
+    {% url 'inventory:detailCustomer' place.id %}
+{% else %}
+    {% url 'inventory:detailWorkplace' place.id %}
+{% endif %}" class="button button-cancel">{% trans 'Cancel' %}</a>
+
 </form>
 {% endblock %}

@@ -309,4 +309,9 @@ def giveBack(request, handoverID):
             return HttpResponseRedirect('/inventory/detailCustomer/' + str(place.id))
         return HttpResponseRedirect('/inventory/detailWorkplace/' + str(place.id))
 
-    return render(request, 'inventory/giveBack.html', { 'place':place, 'thing':thing })
+    if oldHandover.user_content_type == ContentType.objects.get_for_model(Customer):
+        placeType = "customer"
+    else:
+        placeType = "workplace"
+
+    return render(request, 'inventory/giveBack.html', { 'place':place, 'thing':thing , 'placeType':placeType})
