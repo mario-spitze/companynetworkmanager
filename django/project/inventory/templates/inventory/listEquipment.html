@@ -26,9 +26,9 @@
             {{ equipment.name }}
         {% endif %}</td>
         <td>{% if equipment.getType == "equipment" %}
-            {% translate 'Bulk Article' %}
-        {% else %}
             {% translate 'Individual Article' %}
+        {% else %}
+            {% translate 'Bulk Article' %}
         {% endif %}</td>
         <td>{% if equipment.getType == "equipment" %}
             {{ equipment.sn }}
