@@ -92,6 +92,7 @@ class Customer(models.Model):
 
 class Handover(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
+    commend = models.TextField(blank=True, null=True)
 
     class MovementType(models.IntegerChoices):
         LAY = 21
