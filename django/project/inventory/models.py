@@ -15,6 +15,12 @@ class HandoverHelper():
             lastHandover = "neu"
         return lastHandover
 
+    @property
+    def getHistory(self):
+        return Handover.objects.filter(
+            thing_object_id=self.pk, 
+            thing_content_type=ContentType.objects.get_for_model(self)).order_by('timestamp')
+
 #catalog
 class Article(models.Model):
     ean = models.BigIntegerField(blank=True, null=True)
@@ -70,6 +76,8 @@ class Equipment(models.Model, HandoverHelper):
     def getType(self):
         return "equipment"
 
+    
+
 class HardwareClass(models.Model):
     name = models.CharField(max_length=20)
     def __str__(self):
@@ -92,6 +100,7 @@ class Customer(models.Model):
 
 class Handover(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
+    commend = models.TextField(blank=True, null=True)
 
     class MovementType(models.IntegerChoices):
         LAY = 21

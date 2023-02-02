@@ -274,6 +274,7 @@ def createHandover(request, objType, pk):
                 newHandover.user_object_id = recipient.id
                 newHandover.user_content_type =  ContentType.objects.get_for_model(recipient)
                 newHandover.movementType = Handover.MovementType.LAY
+                newHandover.commend = form.cleaned_data['commend']
                 newHandover.save()
 
                 return HttpResponseRedirect('/inventory/listEquipment/')

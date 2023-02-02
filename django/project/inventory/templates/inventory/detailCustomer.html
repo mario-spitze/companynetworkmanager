@@ -17,6 +17,7 @@
     {% for handover in object.handovers %}
     <tr>
         <td>{{ handover}}</td>
+        <td>{{ handover.commend|default_if_none:"" }}</td>
         <td><a href="{% url 'inventory:giveBack' handover.id %}">{% translate 'give back' %}</a></td>
     </tr>
     {% endfor %}

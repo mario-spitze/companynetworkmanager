@@ -16,11 +16,13 @@
 <table border="2">
     <tr>
         <th>{% translate 'material' %}</th>
+        <th>{% translate 'commend' %}</th>
         <th>{% translate 'action' %}</th>
     </tr>
     {% for handover in object.handovers %}
     <tr>
         <td>{{ handover}}</td>
+        <td>{{ handover.commend|default_if_none:"" }}</td>
         <td><a href="{% url 'inventory:giveBack' handover.id %}">{% translate 'give back' %}</a></td>
     </tr>
     {% endfor %}
@@ -31,11 +33,13 @@
     <table border="2">
         <tr>
             <th>{% translate 'material' %}</th>
+            <th>{% translate 'commend' %}</th>
             <th>{% translate 'action' %}</th>
         </tr>
         {% for handover in object.customerHandovers %}
         <tr>
             <td>{{ handover}}</td>
+            <td>{{ handover.commend|default_if_none:"" }}</td>
             <td><a href="{% url 'inventory:giveBack' handover.id %}">{% translate 'give back' %}</a></td>
         </tr>
         {% endfor %}

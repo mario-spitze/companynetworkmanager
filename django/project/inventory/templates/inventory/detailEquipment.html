@@ -1,2 +1,25 @@
-{{ object.id }}
-{{ object.age }}
+{% extends 'content.html' %}
+{% load i18n %}
+{% block title %}{% translate 'Details about device' %}{% endblock %}
+
+{% block content %}
+
+<table border="2">
+    <tr>
+        <td>Name</td><td>{{ object.base.name }}</td>
+    </tr><tr>
+        <td>SN</td><td>{{ object.sn }}</td>
+    </tr>
+</table>
+
+{% translate 'History' %}
+
+<br />
+<table border="2">
+{% for entry in object.getHistory %}
+<tr><td>{{entry.timestamp}}</td><td>{{entry.movementType}}</td><td>{{entry}}</td><td>{{entry.commend}}</td></tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

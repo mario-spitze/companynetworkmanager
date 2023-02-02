@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 class HandoverForm(forms.Form):
     workplace = forms.ModelChoiceField(label=_('to Workplace'), initial=-1, queryset=Workplace.objects.all(), required=False)
     customer = forms.ModelChoiceField(label=_('to Person'), initial=-1, queryset=Customer.objects.all(), required=False)
+    commend = forms.CharField(label=_('commend'), required=False)
 
 ArticleType =(
     ("i", "individual"),
